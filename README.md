@@ -1,0 +1,41 @@
+# ims-project
+
+Project for the course Internet and Mobile Services, UNIBZ, 2016/2017.
+
+## Backend
+
+You will need Docker, Maven, Node, npm, gulp, bower and Java8 installed to run this project.
+
+RUNNING THE BACKEND<br/>
+You should be in the root folder of the project.
+```bash
+./build/build.sh -mongo
+```
+At this point the project will be fully built.
+To run it use
+```bash
+docker-compose -f docker-compose/docker-compose-ims.yml up -d
+```
+To see the logs
+```bash
+docker-compose -f docker-compose/docker-compose-ims.yml logs -f
+```
+To stop it run
+```bash
+docker-compose -f docker-compose/docker-compose-ims.yml down
+```
+
+**The exposed port of the API Gateway is 3000.**
+
+## Frontend
+
+RUNNING THE FRONTEND (located in frontend folder)<br/>
+
+```bash
+tsd install
+gulp
+```
+
+The default task has a nodemon watching for changes.<br/>
+To just run server: `gulp serve`<br/>
+**Application runs on port 80.**
