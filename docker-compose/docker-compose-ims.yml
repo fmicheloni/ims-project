@@ -1,0 +1,60 @@
+version: '2'
+
+services:
+  # MONGO DB IMAGE
+  mongo:
+    image: mongo-service:latest
+    environment:
+      MONGODB_PASSWORD: mypassword
+    ports:
+      - "27017:27017"
+    expose:
+      - 27017
+    volumes:
+        - /data/db:/data/db
+    restart: always
+    networks:
+      imsnetwork:
+        aliases:
+          - mongodb.unibz.com
+
+  registry:
+    image: registry-service:latest
+    hostname: registry.unibz.com
+    ports:
+      - 8761:8761
+    networks:
+      imsnetwork:
+        aliases:
+          - registry.unibz.com
+
+  gateway:
+    image: gateway-service:latest
+    hostname: gateway.unibz.com
+    ports:
+      - "3000:3000"
+    expose:
+      - 3000
+    networks:
+      imsnetwork:
+        aliases:
+          - gateway.unibz.com
+
+  authentication:
+    image: authentication-service:latest
+    hostname: authentication.unibz.com
+    depends_on:
+      - registry
+#      - mongo
+#    ports:
+#      - 5001:5001
+    networks:
+      imsnetwork:
+        aliases:
+          - authentication.unibz.com
+
+# NETWORK SETTINGS
+networks:
+  imsnetwork:
+    driver: bridge
+

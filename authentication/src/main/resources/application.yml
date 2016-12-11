@@ -1,0 +1,36 @@
+server:
+   port: 5001
+
+spring.social.facebook.appId: 620746908110271
+spring.social.facebook.appSecret: 56b699adf28f9c8fc64b07151dda1ce9
+
+# website http://www.network-science.de/ascii/, font big
+banner:
+  location: banner/banner.txt
+
+# LOGGING
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://registry.unibz.com:8761/eureka/
+    instance:
+      hostname: localhost
+
+ribbon:
+  eureka:
+    enabled: true
+
+spring:
+  data:
+    mongodb:
+      host: mongodb.unibz.com
+      username: user
+      password: mypassword
+      database: users
+      port: 27017
