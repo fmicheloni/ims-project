@@ -67,4 +67,4 @@ dist/
 nbdist/
 .nb-gradle/
 
-
+registry/.mvn/wrapper/maven-wrapper.jar
