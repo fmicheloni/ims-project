@@ -27,6 +27,14 @@ docker-compose -f docker-compose/docker-compose-ims.yml down
 
 **The exposed port of the API Gateway is 3000.**
 
+#### Methods
+
+Method	| Path	| Description | Example Body
+------------- | ------------------------- | ------------- | ------------- 
+POST	| /authentication/registration	| Register a new account. | {"username":"Richard012","email":"asdasd@gmail.com","password":"ciao1234"}
+POST	| /authentication/auth	| Login | {"username":"Richard012","password":"ciao1234"}
+POST	| /authentication/validate	| Validate a token | eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSaWNoYXJkMDEyIiwiY3JlYXRlZCI6MTQ4MTU4NDA5ODE1NywiZXhwIjoxNDg0MTc2MDk4fQ.0-cTOpZXwz7FewssjHpfXbWnr6JDUYX7B1ZbT3OPU6ude3MzA21obWA6VRtfysAwFSwIYXtSDINqDRM1EbTFJw
+
 ## Frontend
 
 RUNNING THE FRONTEND (located in frontend folder)<br/>

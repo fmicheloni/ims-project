@@ -7,7 +7,7 @@ spring:
 
 ribbon:
   eureka:
-    enabled: false
+    enabled: true
   ReadTimeout: 20000
   ConnectTimeout: 20000
 
@@ -30,7 +30,8 @@ zuul:
   routes:
     authentication:
       path: /authentication/**
-      url: http://authentication.unibz.com:5001
+      serviceId: authentication
+#      url: http://authentication.unibz.com:5001
       stripPrefix: true
       sensitiveHeaders:
 

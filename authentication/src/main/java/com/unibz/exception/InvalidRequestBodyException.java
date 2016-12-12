@@ -1,8 +1,5 @@
 package com.unibz.exception;
 
-/**
- * Created by fabriziomicheloni on 08/12/16.
- */
 public class InvalidRequestBodyException extends Exception {
 
 	/**

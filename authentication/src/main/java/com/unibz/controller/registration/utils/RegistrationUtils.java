@@ -1,8 +1,8 @@
 package com.unibz.controller.registration.utils;
 
 import com.google.gson.Gson;
-import com.unibz.authentication.dao.model.User;
 import com.unibz.exception.InvalidRequestBodyException;
+import com.unibz.model.User;
 
 /**
  * Created by fabriziomicheloni on 10/12/16.
