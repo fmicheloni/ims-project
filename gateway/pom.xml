@@ -54,6 +54,7 @@
 					<include>**/application.yml</include>
 					<include>**/application.properties</include>
 					<include>**/persistence.xml</include>
+                    <include>**/authpath.yml</include>
 				</includes>
 			</resource>
 
@@ -63,7 +64,8 @@
 					<exclude>**/application.yml</exclude>
 					<exclude>**/application.properties</exclude>
 					<exclude>**/persistence.xml</exclude>
-				</excludes>
+                    <exclude>**/authpath.yml</exclude>
+                </excludes>
 			</resource>
 		</resources>
 

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#if test -z "$MYSQL_USER"; then
+#    echo "MYSQL_USER not defined"
+#    exit 1
+#fi
+#
+#if test -z "$MYSQL_PASSWORD"; then
+#    echo "MYSQL_PASSWORD not defined"
+#    exit 1
+#fi
+
+# start db
+set -e
+set -x
+
+# first, if the /var/lib/mysql directory is empty, unpack it from our predefined db
+#[ "$(ls -A /var/lib/mysql)" ] && echo "Running with existing database in /var/lib/mysql" || ( echo 'Populate initial db'; tar xpzvf default_mysql.tar.gz )
+
+/usr/sbin/mysqld
