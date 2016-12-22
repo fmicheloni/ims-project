@@ -9,7 +9,7 @@ You will need Docker, Maven, Node, npm, gulp, bower and Java8 installed to run t
 RUNNING THE BACKEND<br/>
 You should be in the root folder of the project.
 ```bash
-./build/build.sh -mongo
+./build-script/build.sh -mongo
 ```
 At this point the project will be fully built.
 To run it use

@@ -23,56 +23,56 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping( "/auth" )
 public class AuthController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
-	
-	@Value("${jwt.token.header}")
-	private String tokenHeader;
 
-	@Autowired
-	private AuthenticationManager authenticationManager;
+    private static final Logger logger = LoggerFactory.getLogger( AuthController.class );
 
-	@Autowired
-	private JwtTokenUtils tokenUtils;
+    @Value( "${jwt.token.header}" )
+    private String tokenHeader;
 
-	@Autowired
-	private UserDetailsService userDetailsService;
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
-	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<?> authenticationRequest(@RequestBody String requestBody)
-			throws AuthenticationException {
-		logger.debug("New request for authentication.");
-		
-		// Perform the authentication
-		AuthRequest authenticationRequest = null;
-		
-		try {
-			logger.debug("Authentication started.");
-			
-			authenticationRequest = new Gson().fromJson(requestBody, AuthRequest.class);
-			
-			Authentication authentication = this.authenticationManager
-					.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),
-							authenticationRequest.getPassword()));
-			SecurityContextHolder.getContext().setAuthentication(authentication);
+    @Autowired
+    private JwtTokenUtils tokenUtils;
 
-			// Reload password post-authentication so we can generate token
-			UserDetails userDetails = this.userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
-			String token = this.tokenUtils.generateToken(userDetails);
-			
-			logger.debug("Token created and new user authenticated: [{}]", authenticationRequest.getUsername());
-			
-			return ResponseEntity.ok(new AuthResponse(token));
-		} catch (BadCredentialsException e) {
-			logger.debug("Invalid credentials during authentication: [{}]", authenticationRequest.getUsername());
-			
-			return ResponseEntity.status(400).build();
-		} catch(Exception e) {
-			logger.debug("Invalid request: {}", e.getMessage());
-			
-			return ResponseEntity.status(401).build();
-		}
-	}
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    @RequestMapping( method = RequestMethod.POST )
+    public ResponseEntity<?> authenticationRequest( @RequestBody String requestBody )
+            throws AuthenticationException {
+        logger.debug( "New request for authentication." );
+
+        // Perform the authentication
+        AuthRequest authenticationRequest = null;
+
+        try {
+            logger.debug( "Authentication started." );
+
+            authenticationRequest = new Gson().fromJson( requestBody, AuthRequest.class );
+
+            Authentication authentication = this.authenticationManager
+                    .authenticate( new UsernamePasswordAuthenticationToken( authenticationRequest.getUsername(),
+                            authenticationRequest.getPassword() ) );
+            SecurityContextHolder.getContext().setAuthentication( authentication );
+
+            // Reload password post-authentication so we can generate token
+            UserDetails userDetails = this.userDetailsService.loadUserByUsername( authenticationRequest.getUsername() );
+            String token = this.tokenUtils.generateToken( userDetails );
+
+            logger.debug( "Token created and new user authenticated: [{}]", authenticationRequest.getUsername() );
+
+            return ResponseEntity.ok( new AuthResponse( token ) );
+        } catch ( BadCredentialsException e ) {
+            logger.debug( "Invalid credentials during authentication: [{}]", authenticationRequest.getUsername() );
+
+            return ResponseEntity.status( 400 ).build();
+        } catch ( Exception e ) {
+            logger.debug( "Invalid request: {}", e.getMessage() );
+
+            return ResponseEntity.status( 401 ).build();
+        }
+    }
 }

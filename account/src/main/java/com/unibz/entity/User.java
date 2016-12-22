@@ -1,5 +1,6 @@
 package com.unibz.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
@@ -13,8 +14,13 @@ public class User {
     @Id
     private String username;
 
+    @Column( nullable = false)
     private Date dateOfBirth;
+
+    @Column( nullable = false)
     private String country;
+
+    @Column( nullable = false)
     private String city;
 
     public String getUsername() {
