@@ -1,0 +1,8 @@
+<div ng-show="!homeCtrl.isAuthenticated">
+    <!--NO LOGIN-->
+    <home-no-log-directive></home-no-log-directive>
+</div>
+
+<div ng-show="homeCtrl.isAuthenticated">
+    <h1>Home with login</h1>
+</div>

@@ -14,6 +14,7 @@ module app.demo {
     export interface IDemoService {
         getExcited: boolean;
     }
+
     export class DemoService implements IDemoService {
         getExcited: boolean = false;
     }

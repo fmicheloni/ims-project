@@ -1,117 +1,56 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="imsFrontendApp">
-    <head>
-        <meta charset="UTF-8">
-        <title>Hello Angular TypeScript!</title>
+<body>
 
-        <!-- bower:css -->
-        <link rel='stylesheet' href='lib/bootstrap/dist/css/bootstrap.css' />
-        <!-- endbower -->
-
-        <!-- inject:css -->
-        <link rel="stylesheet" href="/dist/app.css">
-        <!-- endinject -->
-<link href='http://fonts.googleapis.com/css?family=Monoton|Oswald&effect=neon|ice|fire-animation' rel='stylesheet'/>
-        
-        <style>
-            body {
-                width: 100%;
-                background: url("fotos/llamita.jpg");
-                background-repeat: no-repeat;
-                background-size: cover;
-                padding-top: 10px;
-                margin: 55px;
-
-            }
-            .starter-template {
-                padding: 10px 10px;
-                text-align: center;
-            }
-        </style>
-
-        <!--[if lt IE 9]>
-                <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-
-    </head>
-
-    <body>
-        
-     <!-- Fixed navbar -->
-     <nav class="navbar navbar-inverse navbar-fixed-top" style="background:  orange; border: none; width: 100%"  >
-  <div class="container">
-    <div class="navbar-header" >
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar "></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"  style="color: white">The Excursionist</a>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background:  orange; border: none; width: 100%">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar "></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" style="color: white">The Excursionist</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#" style="color: white">Home</a></li>
+                <li><a href="#about" style="color: white">About</a></li>
+                <li><a href="#contact" style="color: white">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false" style="color: white">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-          <li class="active"><a href="#" style="color: white">Home</a></li>
-        <li><a href="#about"  style="color: white">About</a></li>
-        <li><a href="#contact"  style="color: white">Contact</a></li>
-        <li class="dropdown" >
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
 </nav>
-   
 
-<h1 class="font-effect-fire-animation " style="text-align: center; font-family: century gothic; font-weight: bolder; color: orange;">The Excursionist</h1>
-        <br>
 
-        
-        
-        <div class="container">
-	<div class="row">
+<h1 class="font-effect-fire-animation "
+    style="text-align: center; font-family: century gothic; font-weight: bolder; color: orange;">The Excursionist</h1>
+<br>
+
+
+<div class="container">
+    <div class="row">
         <div class="col-md-8">
             <h2 style="color: orange">Look for your excursion</h2>
-<input type="text" class="form-control input-sm" placeholder="Search" />
+            <input type="text" class="form-control input-sm" placeholder="Search"/>
 
-	</div>
-
-</div>
         </div>
-        
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    </div>
+</div>
 
-
-
-
-
- <!-- bower:js -->
- <script src="lib/jquery/dist/jquery.js"></script>
- <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
- <script src="lib/angular/angular.js"></script>
- <!-- endbower -->
-
-        <!-- inject:js -->
-        <script src="/dist/app.js"></script>
-        <!-- endinject -->
-
-    </body>
-</html>
+</body>

@@ -1,80 +1,33 @@
-<html lang="en" ng-app="imsFrontendApp">
-<head>
-	<meta charset="UTF-8">
-	<title>Hello Angular TypeScript!</title>
-
-	<!-- bower:css -->
-	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
-	<!-- endbower -->
-
-	<!-- inject:css -->
-	<link rel="stylesheet" href="/dist/app.css">
-	<!-- endinject -->
-
-	<style>
-		body {
-                    padding-left: 60px;
-            background: url("fotopersito1.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-			padding-top: 50px;
-		}
-		.starter-template {
-			padding: 40px 15px;
-			text-align: center;
-		}
-	</style>
-
-	<!--[if lt IE 9]>
-		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-</head>
-
 <body>
 
 <div id="demo-css-inject">
 
-	<h1>Welcome to Excursionist</h1>
+    <h1>Welcome to Excursionist</h1>
 
-	<button ng-click="demoCtrlVM.demoService.getExcited = !demoCtrlVM.demoService.getExcited">
-	</button>
-	<div ng-show="demoCtrlVM.demoService.getExcited">
-		
-                <img src="llamita.jpg" class="img-responsive" alt="Image gone lost!">
-		
-		<div class="container">
-    <div class="row">
-        <div class="col-lg-4">
-            <h3>About</h3>
-            <p>This is some information about the project</p>
+    <button ng-click="demoCtrlVM.demoService.getExcited = !demoCtrlVM.demoService.getExcited">
+    </button>
+    <div ng-show="demoCtrlVM.demoService.getExcited">
+
+        <img src="llamita.jpg" class="img-responsive" alt="Image gone lost!">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>About</h3>
+                    <p>This is some information about the project</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Destinations</h3>
+                    <p>Here you can choose your destinations of the places you want to visit</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Login</h3>
+                    <p>Here you can login to become a member and enjoy of beautiful excursions</p>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-4">
-            <h3>Destinations</h3>
-            <p>Here you can choose your destinations of the places you want to visit</p>
-        </div>
-        <div class="col-lg-4">
-            <h3>Login</h3>
-            <p>Here you can login to become a member and enjoy of beautiful excursions</p>
-        </div>
+
     </div>
-</div>
-
-		
-		
-		
-		
-	</div>
 
 </div>
-
-<!-- bower:js -->
-<script src="lib/jquery/dist/jquery.js"></script>
-<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
-<script src="lib/angular/angular.js"></script>
-<!-- endbower -->
-
-	<!-- inject:js -->
-	<script src="/dist/app.js"></script>
-	<!-- endinject -->
 </body>

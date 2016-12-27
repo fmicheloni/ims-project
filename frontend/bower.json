@@ -2,9 +2,11 @@
   "name": "ims-frontend",
   "version": "0.0.0",
   "dependencies": {
-	
-	"bootstrap": "*",
-	"angular": "~1.4.8"
+    "bootstrap": "*",
+    "angular": "~1.4.8",
+    "jquery": "^3.1.1",
+    "angular-route": "^1.6.1",
+    "angular-cookies": "^1.6.1"
   },
   "overrides": {
     "bootstrap": {
@@ -14,16 +16,19 @@
         "dist/js/bootstrap.js"
       ]
     },
-	"foundation": {
-	  "main": [
-		"css/foundation.css",
-		"js/foundation.js"
-	  ]
-	},
-	"font-awesome": {
-		"main": [
-		  "css/font-awesome.css"
-		]
-	}
+    "foundation": {
+      "main": [
+        "css/foundation.css",
+        "js/foundation.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": "1.6.1"
   }
 }

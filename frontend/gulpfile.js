@@ -98,7 +98,7 @@ gulp.task('serve', ['scripts', 'cssNano', 'inject'], function(){
 		delayTime: 1,
 		watch: ['public/src/**/*(*.ts|*.html)', 'public/src/**/*.scss'],
 		env: {
-			'PORT': 3000
+			'PORT': 80
 		},
 		ignore: ["public/dist/*", "public/dist/**/**"],
 		// bit faster if we only do what we need to

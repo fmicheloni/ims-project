@@ -2,7 +2,10 @@
 
 angular.module('imsFrontendApp', [
     'app.demo',
-    'app.templates'
-]);
-
-// your app setup here
+    // 'app.templates',
+    'app.home',
+    'app.home.nolog',
+    'ngRoute'
+]).config(($locationProvider) => {
+    $locationProvider.html5Mode(true);
+});
