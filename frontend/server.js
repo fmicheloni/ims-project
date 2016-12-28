@@ -2,11 +2,28 @@ var express = require("express");
 var app = express();
 var path = require('path');
 
+var httpProxy = require('http-proxy');
+var apiProxy = httpProxy.createProxyServer();
+
 var port = process.env.PORT || 80;
 
 // serves all nested static files
 app.use(express.static("public/src/app"));
 app.use(express.static("public"));
+
+var backendApi = 'http://localhost:3000';
+var frontendApi = 'http://localhost'
+
+app.all("/api/*", function(req, res) {
+    console.log("New request to backend");
+    req.url = '/' + req.url.split('/').slice(2).join('/'); // remove the '/api' part
+    apiProxy.web(req, res, {target: backendApi});
+});
+
+app.all("/*", function(req, res) {
+    console.log("New request to frontend");
+    apiProxy.web(req, res, {target: frontendApi});
+});
 
 app.use(function(req, res, next){
     res.status(404);

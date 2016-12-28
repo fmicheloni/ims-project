@@ -7,16 +7,17 @@
 module app.home.nolog {
 
     'use strict';
+    import ILoggedService = app.loginservice.ILoginService;
+    import ILoginService = app.loginservice.ILoginService;
 
     ///////////////////////////////////////////////////////
     //                     INTERFACES                    //
     ///////////////////////////////////////////////////////
 
     export interface IHomeNoLogCtrl {
-    }
-
-    export interface IHomeNoLogService {
-
+        login(): boolean;
+        usernameLogin: string;
+        passwordLogin: string;
     }
 
     ///////////////////////////////////////////////////////
@@ -24,16 +25,17 @@ module app.home.nolog {
     ///////////////////////////////////////////////////////
 
     export class HomeNoLogCtrl implements IHomeNoLogCtrl {
-        constructor(public $scope: ng.IScope) {
+        private usernameLogin: string = undefined;
+        private passwordLogin: string = undefined;
+
+        constructor(public LoginService: ILoginService) {
         }
-    }
 
-    ///////////////////////////////////////////////////////
-    //                      SERVICE                      //
-    ///////////////////////////////////////////////////////
-
-    export class HomeNoLogService implements IHomeNoLogService {
-
+        public login(): boolean {
+            console.log(this.usernameLogin);
+            console.log(this.passwordLogin);
+            return this.LoginService.login(this.usernameLogin, this.passwordLogin);
+        }
     }
 
     ///////////////////////////////////////////////////////
@@ -41,13 +43,12 @@ module app.home.nolog {
     ///////////////////////////////////////////////////////
 
     angular
-        .module('app.home.nolog', [])
+        .module('app.home.nolog', ['app.loginservice'])
         .directive('homeNoLogDirective', () => {
             return {
                 templateUrl: '../../views/home/home_no_login.html',
                 controller: HomeNoLogCtrl,
                 controllerAs: 'homeNoLogCtrl'
             };
-        })
-        .service("homeNoLogService", [() => new app.home.nolog.HomeNoLogService()]);
+        });
 }

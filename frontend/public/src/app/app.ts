@@ -2,9 +2,9 @@
 
 angular.module('imsFrontendApp', [
     'app.demo',
-    // 'app.templates',
     'app.home',
     'app.home.nolog',
+    'app.loginservice',
     'ngRoute'
 ]).config(($locationProvider) => {
     $locationProvider.html5Mode(true);

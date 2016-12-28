@@ -7,16 +7,14 @@
 module app.home {
 
     'use strict';
+    import LoginService = app.loginservice.LoginService;
+    import ILoginService = app.loginservice.ILoginService;
 
     ///////////////////////////////////////////////////////
     //                     INTERFACES                    //
     ///////////////////////////////////////////////////////
 
     export interface IHomeCtrl {
-    }
-
-    export interface IHomeService {
-
     }
 
     ///////////////////////////////////////////////////////
@@ -26,26 +24,9 @@ module app.home {
     export class HomeCtrl implements IHomeCtrl {
         isAuthenticated: boolean =  false;
 
-        constructor(public $scope: ng.IScope, public $cookies) {
-            this.isAuthenticated = this.checkAuthenticated();
+        constructor(public $scope: ng.IScope, public $cookies, public LoginService: ILoginService) {
+            this.isAuthenticated = this.LoginService.isLogged;
         }
-
-        /**
-         * Check whether the auth token is present or not.
-         */
-        public checkAuthenticated(): boolean {
-            let authCookie = this.$cookies.get("Bearer");
-
-            return authCookie != null;
-        }
-    }
-
-    ///////////////////////////////////////////////////////
-    //                      SERVICE                      //
-    ///////////////////////////////////////////////////////
-
-    export class HomeService implements IHomeService {
-
     }
 
     ///////////////////////////////////////////////////////
@@ -53,13 +34,12 @@ module app.home {
     ///////////////////////////////////////////////////////
 
     angular
-        .module('app.home', ['ngRoute', 'ngCookies'])
+        .module('app.home', ['ngRoute', 'ngCookies', 'app.loginservice'])
         .config(($routeProvider) => {
             $routeProvider.when('/', {
                 templateUrl: '../../views/home/home.html',
                 controller: HomeCtrl,
                 controllerAs: 'homeCtrl'
             })
-        })
-        .service("homeService", [() => new app.home.HomeService()]);
+        });
 }
