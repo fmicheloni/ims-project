@@ -26,7 +26,7 @@
     <style>
 body {margin:0;}
 
-ul {
+#menuHorizontal {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -37,9 +37,10 @@ ul {
     width: 100%;
 }
 
-li {
+#mh {
     float: left;
 }
+
 
 li a {
     display: block;
@@ -64,13 +65,25 @@ li a:hover:not(.active) {
     <body>
 
         
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
+<ul id="menuHorizontal">
+  <li id="mh"><a class="active" href="#home">Home</a></li>
+  <li id="mh"><a href="#news">News</a></li>
+  <li id="mh"><a href="#contact">Contact</a></li>
+  <li id="mh"><a href="#about">About</a></li>
 </ul>
 
+        
+<ul>
+  <li><a class="active" href="#home">Menu1</a></li>
+  <li><a href="#news">Menu2</a></li>
+  <li><a href="#news">Menu3</a></li>
+  <li><a href="#news">Menu4</a></li>
+</ul>
+
+        
+        
+        
+        
 <div style="padding:20px;margin-top:30px;height:1500px;">
     <h3 style="color:#a76500">Welcome backt to<span style="font-weight: bold"> The Excursionist</span> <span id="nameOfCustomer"> Fab Micheloni </span></h3>
 <h4>This is your activity for the last month</h4>
