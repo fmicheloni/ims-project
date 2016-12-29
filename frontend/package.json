@@ -19,7 +19,8 @@
   "repository": "",
   "dependencies": {
     "angular-ui-router": "^0.3.2",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "http-proxy": "^1.16.2"
   },
   "devDependencies": {
     "add-stream": "^1.0.0",

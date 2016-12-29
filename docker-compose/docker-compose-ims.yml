@@ -2,81 +2,81 @@ version: '2'
 
 services:
 
-  mysql-account:
-    image: mysql:latest
-    hostname: mysql-account.unibz.com
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-    expose:
-      - 3306
-    ports:
-      - 3306:3306
-    networks:
-      imsnetwork:
-        aliases:
-          - mysql-account.unibz.com
-
-#  mongo-auth:
-#    image: mongo-service:latest
+#  mysql-account:
+#    image: mysql:latest
+#    hostname: mysql-account.unibz.com
 #    environment:
-#      MONGODB_PASSWORD: mypassword
+#      MYSQL_ROOT_PASSWORD: root
 #    expose:
-#      - 27017
-##    volumes:
-##        - /data/db:/data/db
-#    restart: always
-#    networks:
-#      imsnetwork:
-#        aliases:
-#          - mongodb-auth.unibz.com
-#
-#  registry:
-#    image: registry-service:latest
-#    hostname: registry.unibz.com
+#      - 3306
 #    ports:
-#      - 8761:8761
+#      - 3306:3306
 #    networks:
 #      imsnetwork:
 #        aliases:
-#          - registry.unibz.com
-#
-#  gateway:
-#    image: gateway-service:latest
-#    hostname: gateway.unibz.com
-#    ports:
-#      - "3000:3000"
-#    expose:
-#      - 3000
-#    networks:
-#      imsnetwork:
-#        aliases:
-#          - gateway.unibz.com
+#          - mysql-account.unibz.com
 
-#  authentication:
-#    image: authentication-service:latest
-#    hostname: authentication.unibz.com
-#    depends_on:
-#      - registry
-##    ports:
-##      - 5001:5001
-#    networks:
-#      imsnetwork:
-#        aliases:
-#          - authentication.unibz.com
-
-  account:
-    image: account-service:latest
+  mongo-auth:
+    image: mongo-service:latest
     environment:
-      ACCOUNT_SERVICE_PASSWORD: accountpassword
-    hostname: account.unibz.com
-    depends_on:
-      - mysql-account
-    ports:
-      - 6000:6000
+      MONGODB_PASSWORD: mypassword
+    expose:
+      - 27017
+#    volumes:
+#        - /data/db:/data/db
+    restart: always
     networks:
       imsnetwork:
         aliases:
-          - account.unibz.com
+          - mongodb-auth.unibz.com
+
+  registry:
+    image: registry-service:latest
+    hostname: registry.unibz.com
+    ports:
+      - 8761:8761
+    networks:
+      imsnetwork:
+        aliases:
+          - registry.unibz.com
+
+  gateway:
+    image: gateway-service:latest
+    hostname: gateway.unibz.com
+    ports:
+      - "3000:3000"
+    expose:
+      - 3000
+    networks:
+      imsnetwork:
+        aliases:
+          - gateway.unibz.com
+
+  authentication:
+    image: authentication-service:latest
+    hostname: authentication.unibz.com
+    depends_on:
+      - registry
+#    ports:
+#      - 5001:5001
+    networks:
+      imsnetwork:
+        aliases:
+          - authentication.unibz.com
+
+#  account:
+#    image: account-service:latest
+#    environment:
+#      ACCOUNT_SERVICE_PASSWORD: accountpassword
+#    hostname: account.unibz.com
+#    depends_on:
+#      - mysql-account
+#    ports:
+#      - 6000:6000
+#    networks:
+#      imsnetwork:
+#        aliases:
+#          - account.unibz.com
 
 # NETWORK SETTINGS
 networks:

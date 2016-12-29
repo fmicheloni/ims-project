@@ -18,9 +18,9 @@ var _             = require('underscore');
 
 // Lint to keep us in line
 gulp.task('lint', function() {
-	return gulp.src('public/src/**/*.ts')
-		.pipe(tslint())
-		.pipe(tslint.report('default'));
+    return gulp.src('public/src/**/*.ts')
+        .pipe(tslint())
+        .pipe(tslint.report('default'));
 });
 
 // Concatenate & minify JS
@@ -43,7 +43,7 @@ gulp.task('scripts', function() {
 
 // Compile, concat & minify sass
 gulp.task('sass', function () {
-	return gulp.src('public/src/**/*.scss')
+	return gulp.src('public/**/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.dest('public/dist/css'));
 });
