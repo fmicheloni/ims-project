@@ -7,6 +7,19 @@
 module app.loginservice {
 
     'use strict';
+    import LoggingUser = app.home.nolog.LoggingUser;
+
+    ///////////////////////////////////////////////////////
+    //                       MODELS                      //
+    ///////////////////////////////////////////////////////
+
+    export class ResponseToken {
+        token: string;
+
+        constructor(token: string) {
+            this.token = token;
+        }
+    }
 
     ///////////////////////////////////////////////////////
     //                     INTERFACES                    //
@@ -16,7 +29,7 @@ module app.loginservice {
         isLogged: boolean;
         checkIfLogged(): boolean;
         checkTokenSync(token: string): boolean;
-        login(username: string, password: string): boolean;
+        login(user: LoggingUser): boolean;
     }
 
     ///////////////////////////////////////////////////////
@@ -65,12 +78,29 @@ module app.loginservice {
             return http.status == 200;
         }
 
-        login(username: string, password: string): boolean {
-            console.log("Loggin in...");
-            // TODO login logic
-            return undefined;
+        login(user: LoggingUser): boolean {
+            let stringUser: string = JSON.stringify(user);
+            let http = new XMLHttpRequest();
+            let url = 'http://localhost/api/authentication/auth';
+            http.open("POST", url, false);
+            http.setRequestHeader('Content-Type', 'application/json');
+
+            console.log("Logging in...", stringUser);
+            http.send(stringUser);
+
+            if(http.status != 200) {
+                return false;
+            }
+
+            let obtainedToken: ResponseToken = JSON.parse(http.response);
+
+            this.$cookies.put('Bearer', obtainedToken.token);
+
+            this.isLogged = true;
+
+            return true;
         }
-    }
+}
 
     ///////////////////////////////////////////////////////
     //                       ANGULAR                     //

@@ -29,7 +29,7 @@ services:
       imsnetwork:
         aliases:
           - mongodb-auth.unibz.com
-#
+
   registry:
     image: registry-service:latest
     hostname: registry.unibz.com

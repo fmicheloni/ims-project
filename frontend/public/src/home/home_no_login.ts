@@ -7,34 +7,54 @@
 module app.home.nolog {
 
     'use strict';
-    import ILoggedService = app.loginservice.ILoginService;
     import ILoginService = app.loginservice.ILoginService;
+
+    ///////////////////////////////////////////////////////
+    //                       MODELS                      //
+    ///////////////////////////////////////////////////////
+
+    export class LoggingUser {
+        username: string;
+        password: string;
+
+        constructor(username: string, password: string) {
+            this.username = username;
+            this.password = password;
+        }
+    }
 
     ///////////////////////////////////////////////////////
     //                     INTERFACES                    //
     ///////////////////////////////////////////////////////
 
     export interface IHomeNoLogCtrl {
-        login(): boolean;
+        login(): void;
         usernameLogin: string;
         passwordLogin: string;
     }
 
     ///////////////////////////////////////////////////////
-    //                     CONTROLLER                    //
+    //                    CONTROLLERS                    //
     ///////////////////////////////////////////////////////
 
     export class HomeNoLogCtrl implements IHomeNoLogCtrl {
-        private usernameLogin: string = undefined;
-        private passwordLogin: string = undefined;
+        private usernameLogin: string = "";
+        private passwordLogin: string = "";
 
-        constructor(public LoginService: ILoginService) {
+        constructor(public LoginService: ILoginService, public $window) {
         }
 
-        public login(): boolean {
-            console.log(this.usernameLogin);
-            console.log(this.passwordLogin);
-            return this.LoginService.login(this.usernameLogin, this.passwordLogin);
+        public login(): void {
+            let user = new LoggingUser(this.usernameLogin, this.passwordLogin);
+            console.log(user);
+
+            let result =  this.LoginService.login(user);
+
+            if(result) {
+                this.$window.location.href = '/';
+            } else {
+            //    TODO show error message
+            }
         }
     }
 
@@ -43,7 +63,7 @@ module app.home.nolog {
     ///////////////////////////////////////////////////////
 
     angular
-        .module('app.home.nolog', ['app.loginservice'])
+        .module('app.home.nolog', ['app.loginservice', 'angularSpinner'])
         .directive('homeNoLogDirective', () => {
             return {
                 templateUrl: '../../views/home/home_no_login.html',

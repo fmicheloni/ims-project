@@ -4,6 +4,7 @@ angular.module('imsFrontendApp', [
     'app.demo',
     'app.home',
     'app.home.nolog',
+    'app.home.withlog',
     'app.loginservice',
     'ngRoute'
 ]).config(($locationProvider) => {

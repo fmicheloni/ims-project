@@ -20,11 +20,6 @@ app.all("/api/*", function(req, res) {
     apiProxy.web(req, res, {target: backendApi});
 });
 
-app.all("/*", function(req, res) {
-    console.log("New request to frontend");
-    apiProxy.web(req, res, {target: frontendApi});
-});
-
 app.use(function(req, res, next){
     res.status(404);
 
