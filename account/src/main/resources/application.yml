@@ -36,3 +36,6 @@ eureka:
       defaultZone: http://registry.unibz.com:8761/eureka/
     instance:
       hostname: localhost
+
+upload:
+  path: /images/

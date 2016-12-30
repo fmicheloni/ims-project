@@ -5,6 +5,8 @@ import com.unibz.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 /**
  * Created by fabriziomicheloni on 22/12/16.
  */
@@ -21,5 +23,10 @@ public class UserService {
 
     public User saveUser( User user ) {
         return userRepository.save( user );
+    }
+
+    @Transactional
+    public int updateProfilePicture( String picture, String username ) {
+        return userRepository.updateProfilePicture( picture, username );
     }
 }

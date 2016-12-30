@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 
 @SpringBootApplication
@@ -23,6 +24,9 @@ public class AccountApplication implements CommandLineRunner {
     private UserService userService;
 
     @Override public void run( final String... strings ) throws Exception {
+        // creates the directory where all images will be stored
+        new File("/images/").mkdir();
+
         // inserting a user for testing purpose only
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
