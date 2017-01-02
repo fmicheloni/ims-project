@@ -68,3 +68,5 @@ nbdist/
 .nb-gradle/
 
 registry/.mvn/wrapper/maven-wrapper.jar
+
+frontend/.idea/workspace.xml
