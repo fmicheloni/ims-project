@@ -14,8 +14,9 @@ color: white;
 
 }
 
-form{
+.formforsearchbar{
 
 background-color: white;
+border-radius: 10px;
 
 }
