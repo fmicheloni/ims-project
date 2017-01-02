@@ -1,0 +1,57 @@
+server:
+  port: 3000
+
+spring:
+  application:
+    name: gateway
+
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://registry.unibz.com:8761/eureka/
+    instance:
+      hostname: localhost
+
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+
+  routes:
+    authentication:
+      path: /authentication/**
+      serviceId: authentication
+      stripPrefix: true
+      sensitiveHeaders:
+    account:
+      path: /account/**
+      serviceId: account
+      stripPrefix: true
+      sensitiveHeaders:
+
+#authentication:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedReponseTimeRule
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+
+authentication:
+  uri: http://authentication.unibz.com:5001/validate

@@ -1,0 +1,10 @@
+com/unibz/controller/UserController.class
+com/unibz/controller/UploadImageController.class
+com/unibz/repository/UserRepository.class
+com/unibz/service/ImageService.class
+com/unibz/configuration/DataSourceConfiguration.class
+com/unibz/AccountApplication.class
+com/unibz/entity/User.class
+com/unibz/repository/ImageRepository.class
+com/unibz/entity/Image.class
+com/unibz/service/UserService.class

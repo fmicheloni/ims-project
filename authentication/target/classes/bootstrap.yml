@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: authentication
+
+#    healthcheck:
+#      enabled: true
+#  instance:
+#    metadataMap:
+#      management-url: authentication.ims.unibz.com:${server.port}
+#    leaseRenewalIntervalInSeconds: 10
+#    prefer-ip-address: true
+#    hostname: authentication.ims.unibz.com
+#  server:
+#    waitTimeInMsWhenSyncEmpty: 0
