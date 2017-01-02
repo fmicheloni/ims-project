@@ -84,6 +84,7 @@ public class JwtTokenUtilsImpl implements JwtTokenUtils {
 		Map<String, Object> claims = new HashMap<String, Object>();
 		claims.put("sub", userDetails.getUsername());
 		claims.put("created", this.generateCurrentDate());
+		claims.put( "username", userDetails.getUsername() );
 		return this.generateToken(claims);
 	}
 

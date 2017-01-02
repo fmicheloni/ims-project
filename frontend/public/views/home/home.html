@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<div ng-if="!homeCtrl.isAuthenticated">
+<div ng-if="homeCtrl.isAuthenticated">
     <!--NO LOGIN-->
     <home-no-log-directive></home-no-log-directive>
 </div>
-<div ng-if="homeCtrl.isAuthenticated">
+<div ng-if="!homeCtrl.isAuthenticated">
     <!--WITH LOGIN-->
     <home-with-log-directive></home-with-log-directive>
 </div>
