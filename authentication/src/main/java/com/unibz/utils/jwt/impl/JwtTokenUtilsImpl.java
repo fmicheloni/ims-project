@@ -102,7 +102,7 @@ public class JwtTokenUtilsImpl implements JwtTokenUtils {
 		    		.parseClaimsJws(token).getBody();
 		    
 		    return claims.getSubject() != null && !(this.isTokenExpired(token));
-		} catch(SignatureException e) {
+		} catch(Exception e) {
 			return false;
 		}
 	}

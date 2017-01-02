@@ -23,10 +23,9 @@ import java.util.Date;
  * Created by fabriziomicheloni on 30/12/16.
  */
 @RestController
-@RequestMapping( "/upload" )
-public class UploadImageController {
+public class ProfileImageController {
 
-    private static Logger logger = LoggerFactory.getLogger( UploadImageController.class );
+    private static Logger logger = LoggerFactory.getLogger( ProfileImageController.class );
 
     @Value( "${upload.path}" )
     private String storePath;
@@ -36,8 +35,8 @@ public class UploadImageController {
 
     private Tika tika;
 
-    @RequestMapping( method = RequestMethod.POST )
-    public @ResponseBody ResponseEntity handleFileUpload(
+    @RequestMapping( value = "/upload", method = RequestMethod.POST )
+    public @ResponseBody ResponseEntity handleImageUpload(
             @RequestParam( "file" ) MultipartFile file,
             @RequestParam( "username" ) String username ) {
 
@@ -81,6 +80,14 @@ public class UploadImageController {
             new File( imageName ).delete();
             return ResponseEntity.status( HttpStatus.BAD_REQUEST ).body( "Error while saving the image." );
         }
+    }
+
+    @RequestMapping( value = "/public/{id}", method = RequestMethod.GET )
+    public @ResponseBody ResponseEntity serveImage() {
+
+        // TODO serve an image to the client
+        return null;
+
     }
 
     private String generateImageName( String extension ) {

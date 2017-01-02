@@ -41,6 +41,7 @@ module app.loginservice {
 
         constructor(public $localStorage, public $cookies) {
             this.isLogged = this.checkIfLogged();
+            console.log(this.isLogged);
         }
 
         public checkIfLogged(): boolean {
@@ -48,6 +49,7 @@ module app.loginservice {
             let bearerCookie = this.$cookies.get('Bearer');
 
             if(bearerCookie == null || isLoggedLocalStorage == null) {
+                console.log("Not logged ");
                 return false;
             }
 

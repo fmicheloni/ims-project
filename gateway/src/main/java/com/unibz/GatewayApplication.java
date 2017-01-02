@@ -1,51 +1,56 @@
 package com.unibz;
 
-import com.unibz.utils.FilterUtils;
+import com.unibz.configuration.BeanConfiguration;
+import com.unibz.filter.AuthFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableZuulProxy
 @EnableDiscoveryClient
+@Import( {
+        BeanConfiguration.class
+} )
+@EnableAutoConfiguration
+@Configuration
 public class GatewayApplication implements CommandLineRunner {
 
     private static Logger logger = LoggerFactory.getLogger( GatewayApplication.class );
 
 
-    public static void main(String[] args) {
-        SpringApplication.run(GatewayApplication.class, args);
+    public static void main( String[] args ) {
+        SpringApplication.run( GatewayApplication.class, args );
     }
 
-    /**
-     * Loads the file authpath.properties and adds all the properties to a static set of properties.
-     * Such properties are used in the AuthFilter to check the authorization policy of every request.
-     * @param strings
-     * @throws Exception
-     */
-    @Override public void run( final String... strings ) throws Exception {
-        File file = new File( "classpath:authpath.properties" );
-        logger.info( " ------------ File exists: [{}] ------------", file.exists() );
+    @Override
+    public void run( final String... strings ) throws Exception {
 
-        Properties prop = new Properties();
-        try {
-            prop.load( new FileInputStream( "authpath.properties" ) );
-            FilterUtils.authPaths = prop.entrySet();
+    }
 
-            for ( Object o : prop.keySet() ) {
-                logger.info( "New auth path found: [{}]", o );
-            }
-        } catch ( IOException e ) {
-            logger.error( "IOException while loading authpath.properties", e );
-        }
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
+    ///////////////////////////////////////////////////////////
+    //                       ZUUL FILTERS                    //
+    ///////////////////////////////////////////////////////////
+
+    @Bean
+    public AuthFilter authFilter( RestTemplate restTemplate, @Value( "${authentication.uri}" ) String authenticationUri ) {
+        return new AuthFilter()
+                .restTemplate( restTemplate )
+                .authenticationUri( authenticationUri );
     }
 }

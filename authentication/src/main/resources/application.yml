@@ -21,6 +21,8 @@ eureka:
       defaultZone: http://registry.unibz.com:8761/eureka/
     instance:
       hostname: localhost
+      leaseRenewalIntervalInSeconds: 1
+      leaseExpirationDurationInSeconds: 2
 
 ribbon:
   eureka:

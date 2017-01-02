@@ -8,124 +8,171 @@ import java.util.Collection;
 import java.util.Date;
 
 public class UserEntity implements UserDetails {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	private String username;
-	private String password;
-	private String email;
-	private Date lastPasswordReset;
-	private Collection<? extends GrantedAuthority> authorities;
-	private Boolean accountNonExpired = true;
-	private Boolean accountNonLocked = true;
-	private Boolean credentialsNonExpired = true;
-	private Boolean enabled = true;
+    @Id
+    private String username;
+    private String password;
+    private String email;
+    private Date lastPasswordReset;
+    private Collection<? extends GrantedAuthority> authorities;
+    private Boolean accountNonExpired = true;
+    private Boolean accountNonLocked = true;
+    private Boolean credentialsNonExpired = true;
+    private Boolean enabled = true;
 
-	public UserEntity() {}
-	
-	public UserEntity(String username, String password) {
-		this.username = username;
-		this.password = password;
-	}
-	
-	public String getUsername() {
-		return this.username;
-	}
+    public UserEntity() {
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public UserEntity( String username, String password ) {
+        this.username = username;
+        this.password = password;
+    }
 
-	public String getPassword() {
-		return this.password;
-	}
+    public String getUsername() {
+        return this.username;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setUsername( String username ) {
+        this.username = username;
+    }
 
-	public String getEmail() {
-		return this.email;
-	}
+    public String getPassword() {
+        return this.password;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setPassword( String password ) {
+        this.password = password;
+    }
 
-	public Date getLastPasswordReset() {
-		return this.lastPasswordReset;
-	}
+    public String getEmail() {
+        return this.email;
+    }
 
-	public void setLastPasswordReset(Date lastPasswordReset) {
-		this.lastPasswordReset = lastPasswordReset;
-	}
+    public void setEmail( String email ) {
+        this.email = email;
+    }
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return this.authorities;
-	}
+    public Date getLastPasswordReset() {
+        return this.lastPasswordReset;
+    }
 
-	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
-		this.authorities = authorities;
-	}
+    public void setLastPasswordReset( Date lastPasswordReset ) {
+        this.lastPasswordReset = lastPasswordReset;
+    }
 
-	public Boolean getAccountNonExpired() {
-		return this.accountNonExpired;
-	}
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.authorities;
+    }
 
-	public void setAccountNonExpired(Boolean accountNonExpired) {
-		this.accountNonExpired = accountNonExpired;
-	}
+    public void setAuthorities( Collection<? extends GrantedAuthority> authorities ) {
+        this.authorities = authorities;
+    }
 
-	@Override
-	public boolean isAccountNonExpired() {
-		return this.getAccountNonExpired();
-	}
+    public Boolean getAccountNonExpired() {
+        return this.accountNonExpired;
+    }
 
-	public Boolean getAccountNonLocked() {
-		return this.accountNonLocked;
-	}
+    public void setAccountNonExpired( Boolean accountNonExpired ) {
+        this.accountNonExpired = accountNonExpired;
+    }
 
-	public void setAccountNonLocked(Boolean accountNonLocked) {
-		this.accountNonLocked = accountNonLocked;
-	}
+    @Override
+    public boolean isAccountNonExpired() {
+        return this.getAccountNonExpired();
+    }
 
-	@Override
-	public boolean isAccountNonLocked() {
-		return this.getAccountNonLocked();
-	}
+    public Boolean getAccountNonLocked() {
+        return this.accountNonLocked;
+    }
 
-	public Boolean getCredentialsNonExpired() {
-		return this.credentialsNonExpired;
-	}
+    public void setAccountNonLocked( Boolean accountNonLocked ) {
+        this.accountNonLocked = accountNonLocked;
+    }
 
-	public void setCredentialsNonExpired(Boolean credentialsNonExpired) {
-		this.credentialsNonExpired = credentialsNonExpired;
-	}
+    @Override
+    public boolean isAccountNonLocked() {
+        return this.getAccountNonLocked();
+    }
 
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return this.getCredentialsNonExpired();
-	}
+    public Boolean getCredentialsNonExpired() {
+        return this.credentialsNonExpired;
+    }
 
-	public Boolean getEnabled() {
-		return this.enabled;
-	}
+    public void setCredentialsNonExpired( Boolean credentialsNonExpired ) {
+        this.credentialsNonExpired = credentialsNonExpired;
+    }
 
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
-	}
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return this.getCredentialsNonExpired();
+    }
 
-	@Override
-	public boolean isEnabled() {
-		return this.getEnabled();
-	}
-	
-	@Override
-	public String toString() {
-		return "[username=" + username + ", password=" + password + ", email=" + email
-				+ ", lastPasswordReset=" + lastPasswordReset + ", authorities=" + authorities
-				+ ", accountNonExpired=" + accountNonExpired + ", accountNonLocked=" + accountNonLocked
-				+ ", credentialsNonExpired=" + credentialsNonExpired + ", enabled=" + enabled + "]";
-	}
+    public Boolean getEnabled() {
+        return this.enabled;
+    }
+
+    public void setEnabled( Boolean enabled ) {
+        this.enabled = enabled;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.getEnabled();
+    }
+
+
+    @Override
+    public String toString() {
+        return "[username=" + username + ", password=" + password + ", email=" + email
+                + ", lastPasswordReset=" + lastPasswordReset + ", authorities=" + authorities
+                + ", accountNonExpired=" + accountNonExpired + ", accountNonLocked=" + accountNonLocked
+                + ", credentialsNonExpired=" + credentialsNonExpired + ", enabled=" + enabled + "]";
+    }
+
+    public UserEntity username( String username ) {
+        this.username = username;
+        return this;
+    }
+
+    public UserEntity password( String password ) {
+        this.password = password;
+        return this;
+    }
+
+    public UserEntity email( String email ) {
+        this.email = email;
+        return this;
+    }
+
+    public UserEntity lastPasswordReset( Date lastPasswordReset ) {
+        this.lastPasswordReset = lastPasswordReset;
+        return this;
+    }
+
+    public UserEntity authorities( Collection<? extends GrantedAuthority> authorities ) {
+        this.authorities = authorities;
+        return this;
+    }
+
+    public UserEntity accountNonExpired( Boolean accountNonExpired ) {
+        this.accountNonExpired = accountNonExpired;
+        return this;
+    }
+
+    public UserEntity accountNonLocked( Boolean accountNonLocked ) {
+        this.accountNonLocked = accountNonLocked;
+        return this;
+    }
+
+    public UserEntity credentialsNonExpired( Boolean credentialsNonExpired ) {
+        this.credentialsNonExpired = credentialsNonExpired;
+        return this;
+    }
+
+    public UserEntity enabled( Boolean enabled ) {
+        this.enabled = enabled;
+        return this;
+    }
 }

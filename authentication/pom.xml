@@ -203,6 +203,24 @@
                             <delimiter>${resource.delimiter}</delimiter>
                         </delimiters>
                     </configuration>
+                    <executions>
+                        <execution>
+                            <id>copy-resources</id>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>copy-resources</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${basedir}/target/docker</outputDirectory>
+                                <resources>
+                                    <resource>
+                                        <directory>${basedir}/src/main/script</directory>
+                                        <filtering>true</filtering>
+                                    </resource>
+                                </resources>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>pl.project13.maven</groupId>

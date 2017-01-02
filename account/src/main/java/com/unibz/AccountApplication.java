@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 
+@EnableDiscoveryClient
 @SpringBootApplication
 public class AccountApplication implements CommandLineRunner {
 	public static void main(String[] args) {
@@ -34,7 +36,8 @@ public class AccountApplication implements CommandLineRunner {
                 .username( "fmicheloni" )
                 .city( "Trento" )
                 .dateOfBirth( sdf.parse("1994/02/01") )
-                .country( "Italy" );
+                .country( "Italy" )
+                .picture( "fabri.png" );
 
         User user1 = userService.saveUser( user );
 

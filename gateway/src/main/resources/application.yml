@@ -31,7 +31,11 @@ zuul:
     authentication:
       path: /authentication/**
       serviceId: authentication
-#      url: http://authentication.unibz.com:5001
+      stripPrefix: true
+      sensitiveHeaders:
+    account:
+      path: /account/**
+      serviceId: account
       stripPrefix: true
       sensitiveHeaders:
 
@@ -47,3 +51,7 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 20000
+
+
+authentication:
+  uri: http://authentication.unibz.com:5001/validate

@@ -1,12 +1,12 @@
 package com.unibz.utils.encrypt.impl;
 
 
-import com.unibz.utils.encrypt.EncryptPassword;
+import com.unibz.utils.encrypt.EncryptDecryptService;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EncryptPasswordImpl implements EncryptPassword {
+public class EncryptDecryptServiceImpl implements EncryptDecryptService {
 	
 	@Override
 	public String encryptPassword(String password) {
