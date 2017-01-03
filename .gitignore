@@ -41,6 +41,7 @@ Thumbs.db
 */public/dist/
 */nbproject/private/
 */target/
+*/target/*
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -58,6 +59,7 @@ target/
 *.iws
 *.iml
 *.ipr
+*/*.iml
 
 #### NetBeans ###
 nbproject/private/

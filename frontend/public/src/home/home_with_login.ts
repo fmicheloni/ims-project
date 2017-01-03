@@ -8,6 +8,8 @@ module app.home.withlog {
 
     'use strict';
     import ILoginService = app.loginservice.ILoginService;
+    import IStartLoadingService = app.startloading.IStartLoadingService;
+    import CurrentUser = app.startloading.CurrentUser;
 
     ///////////////////////////////////////////////////////
     //                       MODELS                      //
@@ -28,7 +30,6 @@ module app.home.withlog {
     ///////////////////////////////////////////////////////
 
     export interface IHomeWithLogCtrl {
-
     }
 
     ///////////////////////////////////////////////////////
@@ -37,9 +38,12 @@ module app.home.withlog {
 
     export class HomeWithLogCtrl implements IHomeWithLogCtrl {
 
-        constructor(public LoginService: ILoginService) {
+        constructor(public LoginService: ILoginService, public StartLoadingService: IStartLoadingService, public $window) {
+            if(!this.StartLoadingService.informationLoaded) {
+                console.log('Loading user information...');
+                this.StartLoadingService.loadUserInfo(LoginService.loggedUser);
+            }
         }
-
     }
 
     ///////////////////////////////////////////////////////
@@ -47,7 +51,7 @@ module app.home.withlog {
     ///////////////////////////////////////////////////////
 
     angular
-        .module('app.home.withlog', ['app.loginservice', 'angularSpinner'])
+        .module('app.home.withlog', ['app.loginservice', 'app.startloading', 'angularSpinner'])
         .directive('homeWithLogDirective', () => {
             return {
                 templateUrl: '../../views/home/home_with_login.html',

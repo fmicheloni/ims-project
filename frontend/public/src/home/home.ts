@@ -22,10 +22,7 @@ module app.home {
     ///////////////////////////////////////////////////////
 
     export class HomeCtrl implements IHomeCtrl {
-        isAuthenticated: boolean =  false;
-
         constructor(public $scope: ng.IScope, public $cookies, public LoginService: ILoginService) {
-            this.isAuthenticated = this.LoginService.isLogged;
         }
     }
 

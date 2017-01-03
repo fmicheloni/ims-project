@@ -48,13 +48,15 @@ module app.home.nolog {
             let user = new LoggingUser(this.usernameLogin, this.passwordLogin);
             console.log(user);
 
-            let result =  this.LoginService.login(user);
+            let result: boolean =  this.LoginService.login(user);
 
-            if(result) {
-                this.$window.location.href = '/';
-            } else {
-            //    TODO show error message
-            }
+            console.log('Result of login is: ', result);
+
+            // if(result) {
+            //     this.$window.location.href = '/';
+            // } else {
+            // //    TODO show error message
+            // }
         }
     }
 

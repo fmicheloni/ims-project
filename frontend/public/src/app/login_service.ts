@@ -27,6 +27,8 @@ module app.loginservice {
 
     export interface ILoginService {
         isLogged: boolean;
+        getIsLogged(): boolean;
+        loggedUser: string;
         checkIfLogged(): boolean;
         checkTokenSync(token: string): boolean;
         login(user: LoggingUser): boolean;
@@ -37,23 +39,29 @@ module app.loginservice {
     ///////////////////////////////////////////////////////
 
     export class LoginService implements ILoginService {
-        isLogged: boolean = undefined;
+        isLogged: boolean = false;
+        loggedUser: string = undefined;
 
         constructor(public $localStorage, public $cookies) {
+            console.log('Creating LoginService...');
+
             this.isLogged = this.checkIfLogged();
-            console.log(this.isLogged);
+        }
+
+        getIsLogged(): boolean {
+            return this.isLogged;
         }
 
         public checkIfLogged(): boolean {
             let isLoggedLocalStorage = this.$localStorage.isLogged;
             let bearerCookie = this.$cookies.get('Bearer');
 
-            if(bearerCookie == null || isLoggedLocalStorage == null) {
+            if (bearerCookie == null || isLoggedLocalStorage == null) {
                 console.log("Not logged ");
                 return false;
             }
 
-            if(isLoggedLocalStorage != true) {
+            if (isLoggedLocalStorage != true) {
                 return false;
             }
 
@@ -63,12 +71,12 @@ module app.loginservice {
         }
 
         public checkTokenSync(token: string): boolean {
-            if(token == null) {
+            if (token == null) {
                 return false;
             }
 
             let http = new XMLHttpRequest();
-            let url = 'http://localhost/api/authentication/validate';
+            let url = '/api/authentication/validate';
             http.open("POST", url, false);
             http.setRequestHeader('Content-Type', 'application/txt');
 
@@ -90,7 +98,7 @@ module app.loginservice {
             console.log("Logging in...", stringUser);
             http.send(stringUser);
 
-            if(http.status != 200) {
+            if (http.status != 200) {
                 return false;
             }
 
@@ -100,9 +108,13 @@ module app.loginservice {
 
             this.isLogged = true;
 
+            this.loggedUser = user.username;
+
+            console.log(user.username);
+
             return true;
         }
-}
+    }
 
     ///////////////////////////////////////////////////////
     //                       ANGULAR                     //

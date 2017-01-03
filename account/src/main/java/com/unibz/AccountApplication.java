@@ -37,7 +37,9 @@ public class AccountApplication implements CommandLineRunner {
                 .city( "Trento" )
                 .dateOfBirth( sdf.parse("1994/02/01") )
                 .country( "Italy" )
-                .picture( "fabri.png" );
+                .picture( "fabri.png" )
+                .name( "Fabrizio" )
+                .surname( "Micheloni" );
 
         User user1 = userService.saveUser( user );
 

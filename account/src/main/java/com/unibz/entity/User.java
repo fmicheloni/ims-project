@@ -16,6 +16,12 @@ public class User {
     @Id
     private String username;
 
+    @Column
+    private String name;
+
+    @Column
+    private String surname;
+
     @Column( nullable = false )
     private Date dateOfBirth;
 
@@ -91,6 +97,32 @@ public class User {
     public User picture( String picture ) {
         this.picture = picture;
         return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName( final String name ) {
+        this.name = name;
+    }
+
+    public User name( String name ) {
+        this.name = name;
+        return this;
+    }
+
+    public User surname( String surname ) {
+        this.surname = surname;
+        return this;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname( final String surname ) {
+        this.surname = surname;
     }
 
     @Override public String toString() {

@@ -1,5 +1,0 @@
-com/unibz/configuration/BeanConfiguration.class
-com/unibz/utils/FilterUtils.class
-com/unibz/GatewayApplication.class
-com/unibz/exception/UnauthorizedException.class
-com/unibz/filter/AuthFilter.class
