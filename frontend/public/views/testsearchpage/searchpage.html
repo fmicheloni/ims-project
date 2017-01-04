@@ -45,12 +45,47 @@
     <div class="sect">
     </div>
     <div id= "settings" class="subSection subOne">
-        <p>
-            This will be the search page link to modify your settings
-        </p>
     </div>
     <div class="sect"></div>
-    <div id= "search" class="subSection subTwo"></div>
+    <div id= "search" class="subSection subTwo">
+
+
+
+
+<!--searchBar-->
+
+
+        <div class="container">
+            <script type="text/javascript">
+                function active(){
+                    var searchBar = document.getElementById('searchBar');
+                    if(searchBar.value=='Search...'){
+                        searchBar.value=''
+                        searchBar.placeholder ='Search...'
+                    }
+                }
+                function inactive() {
+                    var searchBar = document.getElementById('searchBar');
+                    if (searchBar.value == '') {
+                        searchBar.value = 'Search...'
+                        searchBar.placeholder = ''
+                    }
+                }
+            </script>
+            <h4>Search for your excursion</h4>
+            <form action="nomeDellaPaginaPerDisplay" method="post">
+                <input type="text" id="searchBar" placeholder="Search" value="Search..." maxlength="40" autocomplete="on" onMouseDown="active();" onBlur="inactive();"/><input type="submit" id ="searchBtn" value="Search!"/>
+            </form>
+        </div>
+
+
+
+
+<!--SearchBar END-->
+
+
+
+    </div>
     <div class="sect"></div>
     <div id= "about" class="subSection subThree"></div>
     <div class="sect"></div>
