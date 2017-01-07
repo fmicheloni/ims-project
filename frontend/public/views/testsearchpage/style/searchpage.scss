@@ -9,6 +9,9 @@ html, body{
 h1 h2, h3, h4, h5, h6, p{
   margin-bottom: 20px;
 }
+
+/*Navigation styling*/
+
 nav{
   position:fixed;
   width: 100%;
@@ -24,6 +27,9 @@ nav a{
   margin-right: 50px;
   line-height: 50px;
 }
+
+/*Ending Navigation styling*/
+
 p{
   position: fixed;
   text-align: center;
@@ -64,6 +70,10 @@ p{
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
+/*Text animation styling*/
+
 .fly-in-text {
   list-style: none;
   position: absolute;
@@ -94,6 +104,9 @@ p{
 .fly-in-text.hidden li:nth-child(5) { transform: translateX(-300px) translateY(200px); }
 .fly-in-text.hidden li:nth-child(6) { transform: translateX(20px) translateY(-20px); }
 .fly-in-text.hidden li:nth-child(7) { transform: translateX(30px) translateY(200px); }
+
+
+/* Text animation styling ending*/
 
 .container{
   position: relative;
@@ -142,4 +155,57 @@ color: orange;
 }
 #searchBtn:hover{
   background: #f69035;
+}
+
+.settingsContainer{
+    position: relative;
+    align-content: center;
+    top:100px;
+    left: 300px;
+}
+.userSettings{
+    border: 1px solid #000000;
+    color: #000000;
+    border-right: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    outline: none;
+    width: 350px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.userSubmit{
+    border: 1px solid #000000;
+    font-size: 16px;
+    padding: 10px;
+    background: #2B60DE;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.userSubmit:hover{
+  background: #0020C2;
 }
