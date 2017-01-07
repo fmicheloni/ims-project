@@ -3,11 +3,14 @@
     <div style="background: orange; padding:40px; border: none">
         <h1 style="color: white">The Excursionist</h1>
 
+        <p style="color: white">Start session</p>
+        <form action="../../views/testsearchpage/searchpage.html" method="post">
         <input type="text" ng-model="homeNoLogCtrl.usernameLogin" placeholder="Username"
                style="color:#a76500; border: none; border-radius: 3px"/>
-        <input type="password" ng-model="homeNoLogCtrl.passwordLogin" placeholder="Password"
+        <input type="text" ng-model="homeNoLogCtrl.passwordLogin" placeholder="Password"
                style="color:#a76500; border: none; border-radius: 3px"/>
-        <input type="submit" value="Login" class="btn btn-warning" ng-click="homeNoLogCtrl.login()"/>
+                <input type="submit" id ="searchBtn" value="Log in"/>
+            </form>
 
     </div>
     <div style="color: orange; padding:40px">
@@ -41,6 +44,15 @@
                         <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
                     </div>
                 </div>
+                <!--<div class="form-group">-->
+                <!--<div class="col-sm-offset-2 col-sm-10">-->
+                <!--<div class="checkbox">-->
+                <!--<label>-->
+                <!--<input type="checkbox"> Remember me-->
+                <!--</label>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-default">Sign in</button>
