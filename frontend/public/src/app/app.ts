@@ -8,7 +8,6 @@ angular.module('imsFrontendApp', [
     'app.startloading',
     'app.home.startpage',
     'app.navbar',
+    'app.search',
     'ngRoute'
-]).config(($locationProvider) => {
-    // $locationProvider.html5Mode(true);
-});
+]);

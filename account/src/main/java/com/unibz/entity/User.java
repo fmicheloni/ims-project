@@ -34,6 +34,9 @@ public class User {
     @Column
     private String picture;
 
+    @Column
+    private boolean gender;
+
     public String getUsername() {
         return username;
     }
@@ -86,6 +89,14 @@ public class User {
         return this;
     }
 
+    public boolean isGender() {
+        return gender;
+    }
+
+    public void setGender( final boolean gender ) {
+        this.gender = gender;
+    }
+
     public String getPicture() {
         return picture;
     }
@@ -133,5 +144,10 @@ public class User {
                 ", city='" + city + '\'' +
                 ", picture='" + picture + '\'' +
                 '}';
+    }
+
+    public User gender( boolean gender ) {
+        this.gender = gender;
+        return this;
     }
 }

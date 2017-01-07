@@ -39,7 +39,8 @@ public class AccountApplication implements CommandLineRunner {
                 .country( "Italy" )
                 .picture( "fabri.png" )
                 .name( "Fabrizio" )
-                .surname( "Micheloni" );
+                .surname( "Micheloni" )
+                .gender( true );
 
         User user1 = userService.saveUser( user );
 

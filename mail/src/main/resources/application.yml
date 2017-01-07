@@ -44,8 +44,9 @@ eureka:
       leaseRenewalIntervalInSeconds: 1
       leaseExpirationDurationInSeconds: 2
 
+# development set to true avoid mail sending
 custommail:
-  development: false
+  development: true
   from: theexcursioner@noreply.com
 
 queue:

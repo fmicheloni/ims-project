@@ -29,8 +29,26 @@ module app.home.nolog {
 
     export interface IHomeNoLogCtrl {
         login(): void;
+        register(): void;
+
+        // login fields
         usernameLogin: string;
         passwordLogin: string;
+
+        // registration fields
+        usernameRegistration: string;
+        nameRegistration: string;
+        surnameRegistration: string;
+        passwordRegistration: string;
+        passwordConfirmRegistration: string;
+        cityRegistration: string;
+        stateRegistration: string;
+        dateRegistration: Date;
+        genderRegistration: boolean;
+
+        // navigation
+        isInRegistrationPage: boolean;
+        goToRegistration(): void;
     }
 
     ///////////////////////////////////////////////////////
@@ -38,8 +56,22 @@ module app.home.nolog {
     ///////////////////////////////////////////////////////
 
     export class HomeNoLogCtrl implements IHomeNoLogCtrl {
+
+        // login
         private usernameLogin: string = "";
         private passwordLogin: string = "";
+        private isInRegistrationPage: boolean = false;
+
+        // registration
+        usernameRegistration: string;
+        nameRegistration: string;
+        surnameRegistration: string;
+        passwordRegistration: string;
+        passwordConfirmRegistration: string;
+        cityRegistration: string;
+        stateRegistration: string;
+        dateRegistration: Date;
+        genderRegistration: boolean;
 
         constructor(public LoginService: ILoginService, public $window, public growl) {
         }
@@ -63,6 +95,18 @@ module app.home.nolog {
 
                 this.usernameLogin = "";
             }
+        }
+
+        public register(): void {
+
+        }
+
+        public goToRegistration(): void {
+            this.isInRegistrationPage = true;
+        }
+
+        public goToLogin(): void {
+            this.isInRegistrationPage = false;
         }
     }
 

@@ -25,8 +25,9 @@
                 <li ng-class="{ 'active': navbarCtrl.activePage.endsWith('/#/settings')}"><a href="#settings"
                                                                                              style="color: white">Settings</a>
                 </li>
-                <p class="navbar-text navbar-right" style="color: saddlebrown">Logged as
-                    <b>{{navbarCtrl.username}}!</b></p>
+                <p class="navbar-text navbar-right" style="color: saddlebrown">
+                    &nbsp;&nbsp;&nbsp;&nbsp;Logged as <b>{{navbarCtrl.username}}!</b>
+                </p>
                 <li ng-click="navbarCtrl.logout()"><a href="#" style="color: white">Logout</a></li>
             </ul>
         </div>
