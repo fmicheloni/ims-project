@@ -41,22 +41,28 @@ module app.home.nolog {
         private usernameLogin: string = "";
         private passwordLogin: string = "";
 
-        constructor(public LoginService: ILoginService, public $window) {
+        constructor(public LoginService: ILoginService, public $window, public growl) {
         }
 
         public login(): void {
             let user = new LoggingUser(this.usernameLogin, this.passwordLogin);
             console.log(user);
 
-            let result: boolean =  this.LoginService.login(user);
+            let result: number = this.LoginService.login(user);
 
             console.log('Result of login is: ', result);
 
-            // if(result) {
-            //     this.$window.location.href = '/';
-            // } else {
-            // //    TODO show error message
-            // }
+            if(result != 200) {
+                if (result == 400) {
+                    this.growl.error("Invalid username or password!");
+                }
+
+                if (result == 401) {
+                    this.growl.error("Your account has not been activated!");
+                }
+
+                this.usernameLogin = "";
+            }
         }
     }
 
@@ -65,7 +71,7 @@ module app.home.nolog {
     ///////////////////////////////////////////////////////
 
     angular
-        .module('app.home.nolog', ['app.loginservice', 'angularSpinner'])
+        .module('app.home.nolog', ['app.loginservice', 'angularSpinner', 'angular-growl'])
         .directive('homeNoLogDirective', () => {
             return {
                 templateUrl: '../../views/home/home_no_login.html',

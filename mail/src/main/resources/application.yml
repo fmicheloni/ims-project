@@ -1,0 +1,52 @@
+server:
+   port: 8001
+
+spring:
+  application:
+    name: mail
+  data:
+    mongodb:
+      host: mongodb-auth.unibz.com
+      username: user
+      password: mypassword
+      database: users
+      port: 27017
+  resources:
+    chain:
+      enabled: true
+  rabbitmq:
+    addresses: rabbitmq.unibz.com
+    username: rabbituser
+    password: rabbitpass
+  mail:
+    host: smtp.gmail.com
+    username: excursioner.noreply@gmail.com
+    password: TheExcursionerPassword1234
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+          auth: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://registry.unibz.com:8761/eureka/
+    instance:
+      hostname: localhost
+      leaseRenewalIntervalInSeconds: 1
+      leaseExpirationDurationInSeconds: 2
+
+custommail:
+  development: false
+  from: theexcursioner@noreply.com
+
+queue:
+  name: ims-queue

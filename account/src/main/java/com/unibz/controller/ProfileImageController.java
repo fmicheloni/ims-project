@@ -2,20 +2,22 @@ package com.unibz.controller;
 
 import com.unibz.service.UserService;
 import org.apache.tika.Tika;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.Date;
 
 
@@ -23,6 +25,7 @@ import java.util.Date;
  * Created by fabriziomicheloni on 30/12/16.
  */
 @RestController
+@Controller
 public class ProfileImageController {
 
     private static Logger logger = LoggerFactory.getLogger( ProfileImageController.class );
@@ -32,6 +35,9 @@ public class ProfileImageController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    ServletContext context;
 
     private Tika tika;
 
@@ -82,12 +88,42 @@ public class ProfileImageController {
         }
     }
 
-    @RequestMapping( value = "/public/{id}", method = RequestMethod.GET )
-    public @ResponseBody ResponseEntity serveImage() {
+    @RequestMapping( value = "/public/{imageName:.+}", method = RequestMethod.GET )
+    public void serveImage( @PathVariable String imageName, HttpServletResponse response ) throws IOException {
 
-        // TODO serve an image to the client
-        return null;
+        final String finalImagePath = String.format( "%s%s", storePath, imageName );
 
+        logger.debug( "Serving image [{}]", finalImagePath );
+
+        InputStream in = new FileInputStream( finalImagePath );
+        response.setContentType( getImageMediaType( finalImagePath ) );
+        IOUtils.copy( in, response.getOutputStream() );
+        in.close();
+
+        //        // open image
+        //        File imgPath = new File( finalImagePath );
+        //        BufferedImage bufferedImage = ImageIO.read( imgPath );
+        //
+        //        // get DataBufferBytes from Raster
+        //        WritableRaster raster = bufferedImage.getRaster();
+        //        DataBufferByte data = ( DataBufferByte ) raster.getDataBuffer();
+        //
+        //
+        //        byte[] image = data.getData();
+        //
+        //        return ResponseEntity.ok().contentType( getImageMediaType( imageName ) ).body( image );
+    }
+
+    private String getImageMediaType( String imageName ) {
+        if ( imageName.endsWith( "png" ) ) {
+            return MediaType.IMAGE_PNG_VALUE;
+        }
+
+        if ( imageName.endsWith( "gif" ) ) {
+            return MediaType.IMAGE_GIF_VALUE;
+        }
+
+        return MediaType.IMAGE_JPEG_VALUE;
     }
 
     private String generateImageName( String extension ) {

@@ -15,7 +15,7 @@ public class UserEntity implements UserDetails {
     private String password;
     private String email;
     private Date lastPasswordReset;
-    private Collection<? extends GrantedAuthority> authorities;
+    private transient Collection<? extends GrantedAuthority> authorities;
     private Boolean accountNonExpired = true;
     private Boolean accountNonLocked = true;
     private Boolean credentialsNonExpired = true;

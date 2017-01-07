@@ -1,0 +1,34 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: orange; border:none ">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" style="color: white">The Excursionist</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li ng-class="{ 'active': navbarCtrl.activePage.endsWith('/#/')}" style="color: white"><a
+                        href="#">Home</a>
+                </li>
+                <li ng-class="{ 'active': navbarCtrl.activePage.endsWith('/#/search')}"><a href="#search"
+                                                                                           style="color: white">Search</a>
+                </li>
+                <li ng-class="{ 'active': navbarCtrl.activePage.endsWith('/#/account')}"><a href="#account"
+                                                                                            style="color: white">Account</a>
+                </li>
+                <li ng-class="{ 'active': navbarCtrl.activePage.endsWith('/#/settings')}"><a href="#settings"
+                                                                                             style="color: white">Settings</a>
+                </li>
+                <p class="navbar-text navbar-right" style="color: saddlebrown">Logged as
+                    <b>{{navbarCtrl.username}}!</b></p>
+                <li ng-click="navbarCtrl.logout()"><a href="#" style="color: white">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

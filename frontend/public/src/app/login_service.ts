@@ -31,7 +31,8 @@ module app.loginservice {
         loggedUser: string;
         checkIfLogged(): boolean;
         checkTokenSync(token: string): boolean;
-        login(user: LoggingUser): boolean;
+        login(user: LoggingUser): number;
+        logout(): void;
     }
 
     ///////////////////////////////////////////////////////
@@ -42,7 +43,7 @@ module app.loginservice {
         isLogged: boolean = false;
         loggedUser: string = undefined;
 
-        constructor(public $localStorage, public $cookies) {
+        constructor(public $localStorage, public $cookies, public $window) {
             console.log('Creating LoginService...');
 
             this.isLogged = this.checkIfLogged();
@@ -54,9 +55,10 @@ module app.loginservice {
 
         public checkIfLogged(): boolean {
             let isLoggedLocalStorage = this.$localStorage.isLogged;
+            let username = this.$localStorage.username;
             let bearerCookie = this.$cookies.get('Bearer');
 
-            if (bearerCookie == null || isLoggedLocalStorage == null) {
+            if (bearerCookie == null || isLoggedLocalStorage == null || username == null) {
                 console.log("Not logged ");
                 return false;
             }
@@ -65,12 +67,11 @@ module app.loginservice {
                 return false;
             }
 
-            // TODO connect with the real api gateway
-            // return this.checkTokenSync(bearerCookie);
-            return true;
+            return this.checkTokenSync(bearerCookie);
         }
 
         public checkTokenSync(token: string): boolean {
+
             if (token == null) {
                 return false;
             }
@@ -80,26 +81,24 @@ module app.loginservice {
             http.open("POST", url, false);
             http.setRequestHeader('Content-Type', 'application/txt');
 
-            // TODO connect with the real api gateway
-            http.send('eyJhbGciOiJIUzUxMiJ9.' +
-                'eyJzdWIiOiJSaWNoYXJkMDEyIiwiY3JlYXRlZCI6MTQ4MTU4NDA5ODE1NywiZXhwIjoxNDg0MTc2MDk4fQ.' +
-                '0-cTOpZXwz7FewssjHpfXbWnr6JDUYX7B1ZbT3OPU6ude3MzA21obWA6VRtfysAwFSwIYXtSDINqDRM1EbTFJw');
+            http.send(this.$cookies.get('Bearer'));
 
             return http.status == 200;
         }
 
-        login(user: LoggingUser): boolean {
+        login(user: LoggingUser): number {
             let stringUser: string = JSON.stringify(user);
             let http = new XMLHttpRequest();
-            let url = 'http://localhost/api/authentication/auth';
+            let url = '/api/authentication/auth';
             http.open("POST", url, false);
             http.setRequestHeader('Content-Type', 'application/json');
 
             console.log("Logging in...", stringUser);
+
             http.send(stringUser);
 
             if (http.status != 200) {
-                return false;
+                return http.status;
             }
 
             let obtainedToken: ResponseToken = JSON.parse(http.response);
@@ -107,12 +106,21 @@ module app.loginservice {
             this.$cookies.put('Bearer', obtainedToken.token);
 
             this.isLogged = true;
+            this.$localStorage.isLogged = true;
 
             this.loggedUser = user.username;
+            this.$localStorage.username = user.username;
 
             console.log(user.username);
 
-            return true;
+            return http.status;
+        }
+
+        logout(): void {
+            this.$cookies.remove('Bearer');
+            this.$localStorage.isLogged = undefined;
+            this.$localStorage.username = undefined;
+            this.$window.location.href = '/';
         }
     }
 
@@ -122,5 +130,5 @@ module app.loginservice {
 
     angular
         .module('app.loginservice', ['ngStorage', 'ngCookies'])
-        .service("LoginService", ['$localStorage', '$cookies', LoginService]);
+        .service("LoginService", ['$localStorage', '$cookies', '$window', LoginService]);
 }

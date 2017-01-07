@@ -23,7 +23,7 @@ public class User implements UserDetails {
 	private Boolean credentialsNonExpired = true;
 	private Boolean enabled = false;
 
-	public String getUsername() {
+    public String getUsername() {
 		return this.username;
 	}
 
@@ -160,7 +160,7 @@ public class User implements UserDetails {
 		this.enabled = enabled;
 		return this;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "[username=" + username + ", password=" + password + ", email=" + email

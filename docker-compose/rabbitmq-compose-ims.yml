@@ -1,0 +1,73 @@
+version: '2'
+
+services:
+
+  mongo-auth:
+    image: mongo-service:latest
+    environment:
+      MONGODB_PASSWORD: mypassword
+    expose:
+      - 27017
+    ports:
+      - 27017:27017
+#    volumes:
+#        - /data/db:/data/db
+    restart: always
+    networks:
+      imsnetwork:
+        aliases:
+          - mongodb-auth.unibz.com
+
+  registry:
+    image: registry-service:latest
+    hostname: registry.unibz.com
+    ports:
+      - 8761:8761
+    networks:
+      imsnetwork:
+        aliases:
+          - registry.unibz.com
+
+  authentication:
+    image: authentication-service:latest
+    hostname: authentication.unibz.com
+    depends_on:
+      - registry
+      - mongo-auth
+    ports:
+      - 5001:5001
+    networks:
+      imsnetwork:
+        aliases:
+          - authentication.unibz.com
+
+  mail:
+    image: mail-service:latest
+    hostname: mail.unibz.com
+    depends_on:
+      - mongo-auth
+    ports:
+      - 8001:8001
+    networks:
+      imsnetwork:
+        aliases:
+          - mail.unibz.com
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbituser
+      RABBITMQ_DEFAULT_PASS: rabbitpass
+    ports:
+      - 5672:5672
+      - 15672:15672
+      - 8080:8080
+    networks:
+      imsnetwork:
+        aliases:
+          - rabbitmq.unibz.com
+
+# NETWORK SETTINGS
+networks:
+  imsnetwork:
+    driver: bridge

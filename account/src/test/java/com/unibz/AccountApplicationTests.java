@@ -9,13 +9,19 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
+import java.io.File;
+
 public class AccountApplicationTests {
 
     private static Logger logger = LoggerFactory.getLogger( AccountApplicationTests.class );
 
     @Test
     public void testValidation() {
-        RestTemplate restTemplate = new RestTemplate(  );
+        RestTemplate restTemplate = new RestTemplate();
 
         String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmbW" +
                 "ljaGVsb25pIiwiY3JlYXRlZCI6MTQ4MzI5OTI2NzI2" +
@@ -33,5 +39,24 @@ public class AccountApplicationTests {
                 String.class );
 
         logger.debug( "Status code for auth is [{}]", exchange.getStatusCode().value() );
+    }
+
+    @Test
+    public void asdasd() {
+        // open image
+        File imgPath = new File( "/Users/fabriziomicheloni/images/fabri.png" );
+        System.out.println( imgPath.getAbsolutePath() );
+        try {
+            BufferedImage bufferedImage = ImageIO.read( imgPath );
+
+            WritableRaster raster = bufferedImage .getRaster();
+            DataBufferByte data   = (DataBufferByte) raster.getDataBuffer();
+
+
+            byte[] image = data.getData();
+
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
     }
 }

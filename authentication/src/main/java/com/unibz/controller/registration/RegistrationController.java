@@ -26,69 +26,69 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/registration")
+@RequestMapping( "/registration" )
 public class RegistrationController {
 
-	@Autowired
-	private ModelEntityConverter<User, UserEntity> modelEntityConverter;
+    @Autowired
+    private ModelEntityConverter<User, UserEntity> modelEntityConverter;
 
-	@Autowired
-	private UserDetailsService userDetailsService;
-	
-	private BCryptPasswordEncoder passwordEncoder;
-	
-	private static final Logger logger = LoggerFactory.getLogger(RegistrationController.class);
+    @Autowired
+    private UserDetailsService userDetailsService;
 
-	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<?> authenticationRequest(@RequestBody String registrationBody) {
-        logger.debug("Starting registration POST.");
+    private BCryptPasswordEncoder passwordEncoder;
+
+    private static final Logger logger = LoggerFactory.getLogger( RegistrationController.class );
+
+    @RequestMapping( method = RequestMethod.POST )
+    public ResponseEntity<?> authenticationRequest( @RequestBody String registrationBody ) {
+        logger.debug( "Starting registration POST." );
 
         User user = null;
 
         try {
             // parse json
-            user = RegistrationUtils.parseUserFromRequestBody(registrationBody);
+            user = RegistrationUtils.parseUserFromRequestBody( registrationBody );
 
             // validate request's params
-            RegistrationUtils.validateEmail(user.getEmail());
-            RegistrationUtils.validatePassword(user.getPassword());
-            RegistrationUtils.validateUsername(user.getUsername());
+            RegistrationUtils.validateEmail( user.getEmail() );
+            RegistrationUtils.validatePassword( user.getPassword() );
+            RegistrationUtils.validateUsername( user.getUsername() );
 
-            userDetailsService.loadUserByUsername(user.getUsername());
+            userDetailsService.loadUserByUsername( user.getUsername() );
 
-            throw new UsernameAlreadyExistsException("Username already exists.");
-        } catch (UsernameNotFoundException e) {
+            throw new UsernameAlreadyExistsException( "Username already exists." );
+        } catch ( UsernameNotFoundException e ) {
             List<GrantedAuthority> auth = new ArrayList<GrantedAuthority>();
-            auth.add(new Role("USER"));
+            auth.add( new Role( "USER" ) );
 
             passwordEncoder = new BCryptPasswordEncoder();
 
             user
-                    .accountNonExpired(true)
-                    .accountNonLocked(true)
-                    .credentialsNonExpired(true)
-                    .authorities(auth)
-                    .enabled(true)
-                    .lastPasswordReset(new Date())
-                    .password(passwordEncoder.encode(user.getPassword()));
+                    .accountNonExpired( true )
+                    .accountNonLocked( true )
+                    .credentialsNonExpired( true )
+                    .authorities( auth )
+                    .enabled( false )
+                    .lastPasswordReset( new Date() )
+                    .password( passwordEncoder.encode( user.getPassword() ) );
 
             UserEntity userEntity = null;
             try {
-                userEntity = (UserEntity) modelEntityConverter.entityModelConvert(user, UserEntity.class);
-            } catch (InvalidClassTypeException e1) {
-                logger.error("Invalid cast to UserEntity.", e1);
+                userEntity = ( UserEntity ) modelEntityConverter.entityModelConvert( user, UserEntity.class );
+            } catch ( InvalidClassTypeException e1 ) {
+                logger.error( "Invalid cast to UserEntity.", e1 );
             }
 
-            userDetailsService.saveUser(userEntity);
-        } catch (UsernameAlreadyExistsException e) {
+            userDetailsService.saveUser( userEntity );
+        } catch ( UsernameAlreadyExistsException e ) {
 
-            return ResponseEntity.status(405).body(e.getMessage());
+            return ResponseEntity.status( 405 ).body( e.getMessage() );
 
-        } catch (Exception e) {
+        } catch ( Exception e ) {
 
-            return ResponseEntity.status(400).body("Malformed body.");
+            return ResponseEntity.status( 400 ).body( "Malformed body." );
 
         }
-        return ResponseEntity.status(200).body("Succesfully registered!");
-	}
+        return ResponseEntity.status( 200 ).body( "Succesfully registered!" );
+    }
 }

@@ -82,6 +82,32 @@ services:
         aliases:
           - account.unibz.com
 
+  mail:
+    image: mail-service:latest
+    hostname: mail.unibz.com
+    depends_on:
+      - mongo-auth
+    ports:
+      - 8001:8001
+    networks:
+      imsnetwork:
+        aliases:
+          - mail.unibz.com
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbituser
+      RABBITMQ_DEFAULT_PASS: rabbitpass
+    ports:
+      - 5672:5672
+      - 15672:15672
+      - 8080:8080
+    networks:
+      imsnetwork:
+        aliases:
+          - rabbitmq.unibz.com
+
 # NETWORK SETTINGS
 networks:
   imsnetwork:

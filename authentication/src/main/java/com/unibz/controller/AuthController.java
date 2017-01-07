@@ -60,6 +60,11 @@ public class AuthController {
 
             // Reload password post-authentication so we can generate token
             UserDetails userDetails = this.userDetailsService.loadUserByUsername( authenticationRequest.getUsername() );
+
+            if ( !userDetails.isEnabled() ) {
+                throw new Exception( "Account not activated." );
+            }
+
             String token = this.tokenUtils.generateToken( userDetails );
 
             logger.debug( "Token created and new user authenticated: [{}]", authenticationRequest.getUsername() );
@@ -72,7 +77,7 @@ public class AuthController {
         } catch ( Exception e ) {
             logger.debug( "Invalid request: {}", e.getMessage() );
 
-            return ResponseEntity.status( 401 ).build();
+            return ResponseEntity.status( 401 ).body( e.getMessage() );
         }
     }
 }

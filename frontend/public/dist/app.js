@@ -6,9 +6,10 @@ angular.module('imsFrontendApp', [
     'app.loginservice',
     'app.startloading',
     'app.home.startpage',
+    'app.navbar',
     'ngRoute'
 ]).config(function ($locationProvider) {
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
 });
 /// <reference path="../../../typings/index.d.ts" />
 /**
@@ -32,7 +33,8 @@ var app;
         //                      SERVICE                      //
         ///////////////////////////////////////////////////////
         var StartLoadingService = (function () {
-            function StartLoadingService($http) {
+            function StartLoadingService($localStorage, $http) {
+                this.$localStorage = $localStorage;
                 this.$http = $http;
                 this.informationLoaded = false;
                 this.loggedUserInfo = undefined;
@@ -46,7 +48,8 @@ var app;
             };
             StartLoadingService.prototype.loadUserInfo = function (username) {
                 var _this = this;
-                var url = '/api/account/user?username=' + username;
+                var url = '/api/account/user?username=' + this.$localStorage.username;
+                console.log(url);
                 this.$http.get(url).then(function (response) {
                     _this.loggedUserInfo = response.data;
                     _this.sleep(2000);
@@ -62,7 +65,7 @@ var app;
         ///////////////////////////////////////////////////////
         angular
             .module('app.startloading', [])
-            .service("StartLoadingService", ['$http', StartLoadingService]);
+            .service("StartLoadingService", ['$localStorage', '$http', StartLoadingService]);
     })(startloading = app.startloading || (app.startloading = {}));
 })(app || (app = {}));
 /// <reference path="../../../typings/index.d.ts" />
@@ -88,9 +91,10 @@ var app;
         //                      SERVICE                      //
         ///////////////////////////////////////////////////////
         var LoginService = (function () {
-            function LoginService($localStorage, $cookies) {
+            function LoginService($localStorage, $cookies, $window) {
                 this.$localStorage = $localStorage;
                 this.$cookies = $cookies;
+                this.$window = $window;
                 this.isLogged = false;
                 this.loggedUser = undefined;
                 console.log('Creating LoginService...');
@@ -101,17 +105,16 @@ var app;
             };
             LoginService.prototype.checkIfLogged = function () {
                 var isLoggedLocalStorage = this.$localStorage.isLogged;
+                var username = this.$localStorage.username;
                 var bearerCookie = this.$cookies.get('Bearer');
-                if (bearerCookie == null || isLoggedLocalStorage == null) {
+                if (bearerCookie == null || isLoggedLocalStorage == null || username == null) {
                     console.log("Not logged ");
                     return false;
                 }
                 if (isLoggedLocalStorage != true) {
                     return false;
                 }
-                // TODO connect with the real api gateway
-                // return this.checkTokenSync(bearerCookie);
-                return true;
+                return this.checkTokenSync(bearerCookie);
             };
             LoginService.prototype.checkTokenSync = function (token) {
                 if (token == null) {
@@ -121,29 +124,34 @@ var app;
                 var url = '/api/authentication/validate';
                 http.open("POST", url, false);
                 http.setRequestHeader('Content-Type', 'application/txt');
-                // TODO connect with the real api gateway
-                http.send('eyJhbGciOiJIUzUxMiJ9.' +
-                    'eyJzdWIiOiJSaWNoYXJkMDEyIiwiY3JlYXRlZCI6MTQ4MTU4NDA5ODE1NywiZXhwIjoxNDg0MTc2MDk4fQ.' +
-                    '0-cTOpZXwz7FewssjHpfXbWnr6JDUYX7B1ZbT3OPU6ude3MzA21obWA6VRtfysAwFSwIYXtSDINqDRM1EbTFJw');
+                http.send(this.$cookies.get('Bearer'));
                 return http.status == 200;
             };
             LoginService.prototype.login = function (user) {
                 var stringUser = JSON.stringify(user);
                 var http = new XMLHttpRequest();
-                var url = 'http://localhost/api/authentication/auth';
+                var url = '/api/authentication/auth';
                 http.open("POST", url, false);
                 http.setRequestHeader('Content-Type', 'application/json');
                 console.log("Logging in...", stringUser);
                 http.send(stringUser);
                 if (http.status != 200) {
-                    return false;
+                    return http.status;
                 }
                 var obtainedToken = JSON.parse(http.response);
                 this.$cookies.put('Bearer', obtainedToken.token);
                 this.isLogged = true;
+                this.$localStorage.isLogged = true;
                 this.loggedUser = user.username;
+                this.$localStorage.username = user.username;
                 console.log(user.username);
-                return true;
+                return http.status;
+            };
+            LoginService.prototype.logout = function () {
+                this.$cookies.remove('Bearer');
+                this.$localStorage.isLogged = undefined;
+                this.$localStorage.username = undefined;
+                this.$window.location.href = '/';
             };
             return LoginService;
         }());
@@ -153,7 +161,7 @@ var app;
         ///////////////////////////////////////////////////////
         angular
             .module('app.loginservice', ['ngStorage', 'ngCookies'])
-            .service("LoginService", ['$localStorage', '$cookies', LoginService]);
+            .service("LoginService", ['$localStorage', '$cookies', '$window', LoginService]);
     })(loginservice = app.loginservice || (app.loginservice = {}));
 })(app || (app = {}));
 /// <reference path="../../../typings/index.d.ts" />
@@ -217,9 +225,10 @@ var app;
             //                    CONTROLLERS                    //
             ///////////////////////////////////////////////////////
             var HomeNoLogCtrl = (function () {
-                function HomeNoLogCtrl(LoginService, $window) {
+                function HomeNoLogCtrl(LoginService, $window, growl) {
                     this.LoginService = LoginService;
                     this.$window = $window;
+                    this.growl = growl;
                     this.usernameLogin = "";
                     this.passwordLogin = "";
                 }
@@ -228,11 +237,15 @@ var app;
                     console.log(user);
                     var result = this.LoginService.login(user);
                     console.log('Result of login is: ', result);
-                    // if(result) {
-                    //     this.$window.location.href = '/';
-                    // } else {
-                    // //    TODO show error message
-                    // }
+                    if (result != 200) {
+                        if (result == 400) {
+                            this.growl.error("Invalid username or password!");
+                        }
+                        if (result == 401) {
+                            this.growl.error("Your account has not been activated!");
+                        }
+                        this.usernameLogin = "";
+                    }
                 };
                 return HomeNoLogCtrl;
             }());
@@ -241,7 +254,7 @@ var app;
             //                       ANGULAR                     //
             ///////////////////////////////////////////////////////
             angular
-                .module('app.home.nolog', ['app.loginservice', 'angularSpinner'])
+                .module('app.home.nolog', ['app.loginservice', 'angularSpinner', 'angular-growl'])
                 .directive('homeNoLogDirective', function () {
                 return {
                     templateUrl: '../../views/home/home_no_login.html',
@@ -293,6 +306,47 @@ var app;
             });
         })(withlog = home.withlog || (home.withlog = {}));
     })(home = app.home || (app.home = {}));
+})(app || (app = {}));
+/// <reference path="../../../typings/index.d.ts" />
+/**
+ * Created by fabriziomicheloni on 07/01/17.
+ */
+var app;
+(function (app) {
+    var navbar;
+    (function (navbar) {
+        'use strict';
+        ///////////////////////////////////////////////////////
+        //                    CONTROLLERS                    //
+        ///////////////////////////////////////////////////////
+        var NavbarCtrl = (function () {
+            function NavbarCtrl(StartLoadingService, LoginService) {
+                this.StartLoadingService = StartLoadingService;
+                this.LoginService = LoginService;
+                this.activePage = undefined;
+                this.username = undefined;
+                this.username = this.StartLoadingService.loggedUserInfo.username;
+                this.activePage = window.location.href;
+            }
+            NavbarCtrl.prototype.logout = function () {
+                this.LoginService.logout();
+            };
+            return NavbarCtrl;
+        }());
+        navbar.NavbarCtrl = NavbarCtrl;
+        ///////////////////////////////////////////////////////
+        //                       ANGULAR                     //
+        ///////////////////////////////////////////////////////
+        angular
+            .module('app.navbar', ['app.startloading', 'app.loginservice'])
+            .directive('navbarDirective', function () {
+            return {
+                templateUrl: '../../views/navbar/navbar.html',
+                controller: NavbarCtrl,
+                controllerAs: 'navbarCtrl'
+            };
+        });
+    })(navbar = app.navbar || (app.navbar = {}));
 })(app || (app = {}));
 /// <reference path="../../../typings/index.d.ts" />
 /**

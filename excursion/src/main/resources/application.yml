@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: excursion
+  datasource:
+    url: jdbc:mysql://mysql-account.unibz.com:3306/ims?createDatabaseIfNotExist=true&autoReconnect=true
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+    testWhileIdle: true         # connection expires
+    validationQuery: SELECT 1   # connection expires
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+server:
+  port: 9001
+
+ribbon:
+  eureka:
+    enabled: true
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://registry.unibz.com:8761/eureka/
+    instance:
+      hostname: localhost
+      leaseRenewalIntervalInSeconds: 1
+      leaseExpirationDurationInSeconds: 2
+
+upload:
+  path: /images/

@@ -11,8 +11,8 @@ var port = process.env.PORT || 80;
 app.use(express.static("public/src/app"));
 app.use(express.static("public"));
 
-var backendApi = 'http://localhost:3000';
-var frontendApi = 'http://localhost'
+var backendApi = 'http://www.theexcursioner.com:3000';
+var frontendApi = 'http://www.theexcursioner.com/'
 
 app.all("/api/*", function(req, res) {
     console.log("New request to backend");

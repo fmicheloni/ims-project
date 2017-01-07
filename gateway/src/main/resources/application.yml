@@ -38,11 +38,16 @@ zuul:
       serviceId: account
       stripPrefix: true
       sensitiveHeaders:
+    mail:
+      path: /mail/**
+      stripPrefix: true
+      serviceId: mail
+      url: http://mail.unibz.com:8001
+      sensitiveHeaders:
 
 #authentication:
 #  ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedReponseTimeRule
-
 
 hystrix:
   command:

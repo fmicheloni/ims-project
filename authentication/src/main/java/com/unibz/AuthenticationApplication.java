@@ -39,7 +39,7 @@ public class AuthenticationApplication implements CommandLineRunner {
                 .username( "fmicheloni" )
                 .accountNonExpired( true )
                 .accountNonLocked( true )
-                .email( "fmicheloni@gmail.com" )
+                .email( "fabrizio.micheloni1994@gmail.com" )
                 .enabled( true )
                 .lastPasswordReset( new Date() )
                 .password( encryptDecryptService.encryptPassword( "ciao1234" ) );

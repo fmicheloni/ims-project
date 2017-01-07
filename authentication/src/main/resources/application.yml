@@ -39,6 +39,10 @@ spring:
   resources:
     chain:
       enabled: true
+  rabbitmq:
+    addresses: rabbitmq.unibz.com
+    username: rabbituser
+    password: rabbitpass
 
 jwt:
   token:
@@ -49,3 +53,6 @@ jwt:
 management:
   security:
     enabled: true
+
+queue:
+  name: ims-queue

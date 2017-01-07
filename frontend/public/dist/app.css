@@ -22,7 +22,7 @@
   min-width: 50%;
   min-height: 50%;
 }
-.startPage {
+.startPageEnvelop .startPage {
   width: 900px;
   margin-left: auto;
   margin-right: auto;
@@ -31,19 +31,196 @@
   background-repeat: no-repeat;
 }
 
-.whitefontparagraph {
+.startPageEnvelop .whitefontparagraph {
   color: white;
 }
 
-.formforsearchbar {
+.startPageEnvelop .formforsearchbar {
   background-color: white;
   border-radius: 10px;
 }
-.bodyaa {
-  width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  background-image: url("images/5terreims.jpg");
+#startingSearchPage * {
+  margin: 0;
+  padding: 0;
+}
+
+#startingSearchPage html,
+#startingSearchPage body {
+  height: 100%;
+}
+
+#startingSearchPage h1 h2,
+#startingSearchPage h3,
+#startingSearchPage h4,
+#startingSearchPage h5,
+#startingSearchPage h6,
+#startingSearchPage p {
+  margin-bottom: 20px;
+}
+
+#startingSearchPage nav {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+#startingSearchPage nav a {
+  text-decoration: none;
+  color: white;
+  margin-left: 30px;
+  margin-right: 50px;
+  line-height: 50px;
+}
+
+#startingSearchPage p {
+  position: fixed;
+  text-align: center;
+  color: #66512c;
+}
+
+#startingSearchPage .sect {
+  content: "THE EXURSIONIST";
+  height: 100%;
+  background-image: url("src/images/picforsearch.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#startingSearchPage .subSection {
+  height: 100%;
+}
+
+#startingSearchPage .subOne {
+  opacity: .5;
+  background-image: url("src/images/picforpersonal2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#startingSearchPage .subtwo {
+  opacity: .5;
+  background-image: url("src/images/personalfoto3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#startingSearchPage .subThree {
+  opacity: .5;
+  background-image: url("src/images/aboutimage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#startingSearchPage .subFour {
+  opacity: .5;
+  background-image: url("src/images/personal4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#startingSearchPage .fly-in-text {
+  list-style: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#startingSearchPage .fly-in-text li {
+  display: inline-block;
+  margin-right: 50px;
+  font-family: Open Sans, Arial;
+  font-weight: 300;
+  font-size: 4em;
+  color: #fff;
+  opacity: 1;
+  transition: all 2.5s ease;
+}
+
+#startingSearchPage .fly-in-text li:last-child {
+  margin-right: 0;
+}
+
+#startingSearchPage .fly-in-text.hidden li {
+  opacity: 0;
+}
+
+#startingSearchPage .fly-in-text.hidden li:nth-child(1) {
+  transform: translateX(-200px) translateY(-200px);
+}
+
+#startingSearchPage .fly-in-text.hidden li:nth-child(2) {
+  transform: translateX(20px) translateY(100px);
+}
+
+#startingSearchPage .fly-in-text.hidden li:nth-child(3) {
+  transform: translateX(-150px) translateY(-80px);
+}
+
+#startingSearchPage .fly-in-text.hidden li:nth-child(4) {
+  transform: translateX(10px) translateY(-200px);
+}
+
+#startingSearchPage .fly-in-text.hidden li:nth-child(5) {
+  transform: translateX(-300px) translateY(200px);
+}
+
+#startingSearchPage .fly-in-text.hidden li:nth-child(6) {
+  transform: translateX(20px) translateY(-20px);
+}
+
+#startingSearchPage .fly-in-text.hidden li:nth-child(7) {
+  transform: translateX(30px) translateY(200px);
+}
+
+#startingSearchPage .container {
+  position: relative;
+  top: 100px;
+  text-align: center;
+  font-family: Open Sans, Arial;
+  font-size: 4em;
+}
+
+#startingSearchPage h4 {
+  color: orange;
+}
+
+#startingSearchPage #searchBar {
+  border: 1px solid #000000;
+  color: #000000;
+  border-right: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  outline: none;
+  width: 350px;
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#startingSearchPage #searchBtn {
+  border: 1px solid #000000;
+  font-size: 16px;
+  padding: 10px;
+  background: #f1d829;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  -webkit-border-top-right-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-bottomright: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#startingSearchPage #searchBtn:hover {
+  background: #f69035;
 }

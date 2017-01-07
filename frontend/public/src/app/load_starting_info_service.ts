@@ -42,7 +42,7 @@ module app.startloading {
 
         loggedUserInfo: app.startloading.CurrentUser = undefined;
 
-        constructor(public $http) {
+        constructor(public $localStorage, public $http) {
             console.log('Creating StartLoadingService...');
         }
 
@@ -54,7 +54,8 @@ module app.startloading {
         }
 
         loadUserInfo(username: string): void {
-            let url = '/api/account/user?username=' + username;
+            let url = '/api/account/user?username=' + this.$localStorage.username;
+            console.log(url);
             this.$http.get(url).then((response) => {
                 this.loggedUserInfo = response.data;
                 this.sleep(2000);
@@ -70,5 +71,5 @@ module app.startloading {
 
     angular
         .module('app.startloading', [])
-        .service("StartLoadingService", ['$http', StartLoadingService]);
+        .service("StartLoadingService", ['$localStorage', '$http', StartLoadingService]);
 }
