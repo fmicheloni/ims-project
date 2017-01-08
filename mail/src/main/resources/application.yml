@@ -46,7 +46,7 @@ eureka:
 
 # development set to true avoid mail sending
 custommail:
-  development: true
+  development: false
   from: theexcursioner@noreply.com
 
 queue:

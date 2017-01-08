@@ -20,6 +20,7 @@ module app.startloading {
         country: string;
         city: string;
         picture: string;
+        gender: boolean;
     }
 
     ///////////////////////////////////////////////////////

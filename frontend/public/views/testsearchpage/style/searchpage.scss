@@ -1,239 +1,284 @@
-.searchPageLore {
-  * {
+//.searchPageLore {
+//  * {
+//    margin: 0;
+//    padding: 0;
+//  }
+//
+//  html, body {
+//    height: 100%;
+//  }
+//
+//  h1 h2, h3, h4, h5, h6, p {
+//    margin-bottom: 20px;
+//  }
+//
+//  /*Navigation styling*/
+//
+//  nav {
+//    position: fixed;
+//    width: 100%;
+//    height: 50px;
+//    background-color: orange;
+//    z-index: 99;
+//  }
+//
+//  nav a {
+//    text-decoration: none;
+//    color: white;
+//    margin-left: 30px;
+//    margin-right: 50px;
+//    line-height: 50px;
+//  }
+//
+//  /*Ending Navigation styling*/
+//
+//  p {
+//    position: fixed;
+//    text-align: center;
+//    color: #66512c;
+//  }
+//
+//  .sect {
+//    content: "THE EXCURSIONIST";
+//    height: 100%;
+//    background-image: url("../../../images/picforsearch.jpg");
+//    background-size: cover;
+//    background-repeat: no-repeat;
+//    background-attachment: fixed;
+//  }
+//
+//  .subSection {
+//    height: 100%;
+//  }
+//
+//  .subOne {
+//    opacity: .5;
+//    background-image: url("../../../images/picforpersonal2.jpg");
+//    background-repeat: no-repeat;
+//    background-size: cover;
+//  }
+//
+//  .subtwo {
+//    opacity: .5;
+//    background-image: url("../../../images/personalfoto3.jpg");
+//    background-repeat: no-repeat;
+//    background-size: cover;
+//  }
+//
+//  .subThree {
+//    opacity: .5;
+//    background-image: url("../../../images/aboutimage.jpg");
+//    background-repeat: no-repeat;
+//    background-size: cover;
+//  }
+//
+//  .subFour {
+//    opacity: .5;
+//    background-image: url("../../../images/personal4.jpg");
+//    background-repeat: no-repeat;
+//    background-size: cover;
+//  }
+//
+//  /*Text animation styling*/
+//
+//  .fly-in-text {
+//    list-style: none;
+//    position: absolute;
+//    left: 50%;
+//    top: 50%;
+//    transform: translateX(-50%) translateY(-50%);
+//  }
+//
+//  .fly-in-text li {
+//    display: inline-block;
+//    margin-right: 50px;
+//    font-family: Open Sans, Arial;
+//    font-weight: 300;
+//    font-size: 4em;
+//    color: #fff;
+//    opacity: 1;
+//    transition: all 2.5s ease;
+//  }
+//
+//  .fly-in-text li:last-child {
+//    margin-right: 0;
+//  }
+//
+//  .fly-in-text.hidden li {
+//    opacity: 0;
+//  }
+//  .fly-in-text.hidden li:nth-child(1) {
+//    transform: translateX(-200px) translateY(-200px);
+//  }
+//  .fly-in-text.hidden li:nth-child(2) {
+//    transform: translateX(20px) translateY(100px);
+//  }
+//  .fly-in-text.hidden li:nth-child(3) {
+//    transform: translateX(-150px) translateY(-80px);
+//  }
+//  .fly-in-text.hidden li:nth-child(4) {
+//    transform: translateX(10px) translateY(-200px);
+//  }
+//  .fly-in-text.hidden li:nth-child(5) {
+//    transform: translateX(-300px) translateY(200px);
+//  }
+//  .fly-in-text.hidden li:nth-child(6) {
+//    transform: translateX(20px) translateY(-20px);
+//  }
+//  .fly-in-text.hidden li:nth-child(7) {
+//    transform: translateX(30px) translateY(200px);
+//  }
+//
+//  /* Text animation styling ending*/
+//
+//  .container {
+//    position: relative;
+//    top: 100px;
+//    text-align: center;
+//    font-family: Open Sans, Arial;
+//    font-size: 4em;
+//  }
+//
+//  h4 {
+//    color: orange;
+//  }
+//
+//  #searchBar {
+//    border: 1px solid #000000;
+//    color: #000000;
+//    border-right: none;
+//    font-size: 16px;
+//    font-weight: bold;
+//    padding: 10px;
+//    outline: none;
+//    width: 350px;
+//    -webkit-border-top-left-radius: 10px;
+//    -webkit-border-bottom-left-radius: 10px;
+//    -moz-border-radius-topleft: 10px;
+//    -moz-border-radius-bottomleft: 10px;
+//    border-top-left-radius: 10px;
+//    border-bottom-left-radius: 10px;
+//
+//  }
+//
+//  #searchBtn {
+//    border: 1px solid #000000;
+//    font-size: 16px;
+//    padding: 10px;
+//    background: #f1d829;
+//    font-weight: bold;
+//    cursor: pointer;
+//    outline: none;
+//    -webkit-border-top-right-radius: 10px;
+//    -webkit-border-bottom-right-radius: 10px;
+//    -moz-border-radius-topright: 10px;
+//    -moz-border-radius-bottomright: 10px;
+//    border-top-right-radius: 10px;
+//    border-bottom-right-radius: 10px;
+//
+//  }
+//
+//  #searchBtn:hover {
+//    background: #f69035;
+//  }
+//
+//  .settingsContainer {
+//    position: relative;
+//    align-content: center;
+//    top: 100px;
+//    left: 300px;
+//  }
+//
+//  .userSettings {
+//    border: 1px solid #000000;
+//    color: #000000;
+//    border-right: none;
+//    font-size: 16px;
+//    font-weight: bold;
+//    padding: 10px;
+//    outline: none;
+//    width: 350px;
+//    -webkit-border-top-left-radius: 10px;
+//    -webkit-border-bottom-left-radius: 10px;
+//    -moz-border-radius-topleft: 10px;
+//    -moz-border-radius-bottomleft: 10px;
+//    border-top-left-radius: 10px;
+//    border-bottom-left-radius: 10px;
+//    -webkit-border-top-right-radius: 10px;
+//    -webkit-border-bottom-right-radius: 10px;
+//    -moz-border-radius-topright: 10px;
+//    -moz-border-radius-bottomright: 10px;
+//    border-top-right-radius: 10px;
+//    border-bottom-right-radius: 10px;
+//  }
+//  .userSubmit {
+//    border: 1px solid #000000;
+//    font-size: 16px;
+//    padding: 10px;
+//    background: #2B60DE;
+//    font-weight: bold;
+//    cursor: pointer;
+//    outline: none;
+//    -webkit-border-top-left-radius: 10px;
+//    -webkit-border-bottom-left-radius: 10px;
+//    -moz-border-radius-topleft: 10px;
+//    -moz-border-radius-bottomleft: 10px;
+//    border-top-left-radius: 10px;
+//    border-bottom-left-radius: 10px;
+//    -webkit-border-top-right-radius: 10px;
+//    -webkit-border-bottom-right-radius: 10px;
+//    -moz-border-radius-topright: 10px;
+//    -moz-border-radius-bottomright: 10px;
+//    border-top-right-radius: 10px;
+//    border-bottom-right-radius: 10px;
+//  }
+//
+//  .userSubmit:hover {
+//    background: #0020C2;
+//  }
+//}
+
+.searchBarExcursion {
+  #custom-search-input {
     margin: 0;
+    margin-top: 10px;
     padding: 0;
   }
 
-  html, body {
-    height: 100%;
+  #custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px;
+    padding-left: 3px;
+    padding-left: 4px;
+
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
   }
 
-  h1 h2, h3, h4, h5, h6, p {
-    margin-bottom: 20px;
-  }
-
-  /*Navigation styling*/
-
-  nav {
-    position: fixed;
-    width: 100%;
-    height: 50px;
-    background-color: orange;
-    z-index: 99;
-  }
-
-  nav a {
-    text-decoration: none;
-    color: white;
-    margin-left: 30px;
-    margin-right: 50px;
-    line-height: 50px;
-  }
-
-  /*Ending Navigation styling*/
-
-  p {
-    position: fixed;
-    text-align: center;
-    color: #66512c;
-  }
-
-  .sect {
-    content: "THE EXCURSIONIST";
-    height: 100%;
-    background-image: url("../../../images/picforsearch.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-
-  .subSection {
-    height: 100%;
-  }
-
-  .subOne {
-    opacity: .5;
-    background-image: url("../../../images/picforpersonal2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .subtwo {
-    opacity: .5;
-    background-image: url("../../../images/personalfoto3.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .subThree {
-    opacity: .5;
-    background-image: url("../../../images/aboutimage.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .subFour {
-    opacity: .5;
-    background-image: url("../../../images/personal4.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  /*Text animation styling*/
-
-  .fly-in-text {
-    list-style: none;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-
-  .fly-in-text li {
-    display: inline-block;
-    margin-right: 50px;
-    font-family: Open Sans, Arial;
-    font-weight: 300;
-    font-size: 4em;
-    color: #fff;
-    opacity: 1;
-    transition: all 2.5s ease;
-  }
-
-  .fly-in-text li:last-child {
-    margin-right: 0;
-  }
-
-  .fly-in-text.hidden li {
-    opacity: 0;
-  }
-  .fly-in-text.hidden li:nth-child(1) {
-    transform: translateX(-200px) translateY(-200px);
-  }
-  .fly-in-text.hidden li:nth-child(2) {
-    transform: translateX(20px) translateY(100px);
-  }
-  .fly-in-text.hidden li:nth-child(3) {
-    transform: translateX(-150px) translateY(-80px);
-  }
-  .fly-in-text.hidden li:nth-child(4) {
-    transform: translateX(10px) translateY(-200px);
-  }
-  .fly-in-text.hidden li:nth-child(5) {
-    transform: translateX(-300px) translateY(200px);
-  }
-  .fly-in-text.hidden li:nth-child(6) {
-    transform: translateX(20px) translateY(-20px);
-  }
-  .fly-in-text.hidden li:nth-child(7) {
-    transform: translateX(30px) translateY(200px);
-  }
-
-  /* Text animation styling ending*/
-
-  .container {
+  #custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
     position: relative;
-    top: 100px;
-    text-align: center;
-    font-family: Open Sans, Arial;
-    font-size: 4em;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #D9230F;
   }
 
-  h4 {
-    color: orange;
+  .search-query:focus + button {
+    z-index: 3;
   }
 
-  #searchBar {
-    border: 1px solid #000000;
-    color: #000000;
-    border-right: none;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px;
-    outline: none;
-    width: 350px;
-    -webkit-border-top-left-radius: 10px;
-    -webkit-border-bottom-left-radius: 10px;
-    -moz-border-radius-topleft: 10px;
-    -moz-border-radius-bottomleft: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+  .google-map-div {
 
-  }
-
-  #searchBtn {
-    border: 1px solid #000000;
-    font-size: 16px;
-    padding: 10px;
-    background: #f1d829;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none;
-    -webkit-border-top-right-radius: 10px;
-    -webkit-border-bottom-right-radius: 10px;
-    -moz-border-radius-topright: 10px;
-    -moz-border-radius-bottomright: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-
-  }
-
-  #searchBtn:hover {
-    background: #f69035;
-  }
-
-  .settingsContainer {
-    position: relative;
-    align-content: center;
-    top: 100px;
-    left: 300px;
-  }
-
-  .userSettings {
-    border: 1px solid #000000;
-    color: #000000;
-    border-right: none;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px;
-    outline: none;
-    width: 350px;
-    -webkit-border-top-left-radius: 10px;
-    -webkit-border-bottom-left-radius: 10px;
-    -moz-border-radius-topleft: 10px;
-    -moz-border-radius-bottomleft: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    -webkit-border-top-right-radius: 10px;
-    -webkit-border-bottom-right-radius: 10px;
-    -moz-border-radius-topright: 10px;
-    -moz-border-radius-bottomright: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-  .userSubmit {
-    border: 1px solid #000000;
-    font-size: 16px;
-    padding: 10px;
-    background: #2B60DE;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none;
-    -webkit-border-top-left-radius: 10px;
-    -webkit-border-bottom-left-radius: 10px;
-    -moz-border-radius-topleft: 10px;
-    -moz-border-radius-bottomleft: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    -webkit-border-top-right-radius: 10px;
-    -webkit-border-bottom-right-radius: 10px;
-    -moz-border-radius-topright: 10px;
-    -moz-border-radius-bottomright: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-
-  .userSubmit:hover {
-    background: #0020C2;
   }
 }

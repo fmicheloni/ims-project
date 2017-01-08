@@ -9,5 +9,6 @@ angular.module('imsFrontendApp', [
     'app.home.startpage',
     'app.navbar',
     'app.search',
+    'app.account',
     'ngRoute'
 ]);

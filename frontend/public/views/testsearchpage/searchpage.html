@@ -1,44 +1,86 @@
 <navbar-directive></navbar-directive>
-<div class="searchPageLore">
-    <!--animation for the welcome-->
 
-    <ul class="fly-in-text hidden">
-        <li>W</li>
-        <li>E</li>
-        <li>L</li>
-        <li>C</li>
-        <li>O</li>
-        <li>M</li>
-        <li>E</li>
-    </ul>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
-    <script type="text/javascript">
-        (function () {
+<br>
+<br>
+<br>
 
-            setTimeout(function () {
-                $('.fly-in-text').removeClass('hidden');
-            }, 500);
+<div class="container searchBarExcursion">
 
-        })();
-    </script>
 
-    <div class="sect">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            <h2>Search for an excursion!</h2>
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="  search-query form-control" placeholder="Search"/>
+                    <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button">
+                        <span class=" glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="google-map-div">
+                    <div map-lazy-load="https://maps.google.com/maps/api/js">
+                        <ng-map center="{{searchCtrl.latitude}},{{searchCtrl.longitude}}" zoom="14">
+                            <marker position="{{searchCtrl.latitude}},{{searchCtrl.longitude}}"></marker>
+                        </ng-map>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
     </div>
-
-    <!--searchBar-->
-
-    <div class="container">
-        <h4>Search for your excursion</h4>
-        <form action="nomeDellaPaginaPerDisplay" method="post">
-            <input type="text" id="searchBar" placeholder="Search..." maxlength="40"/>
-            <input type="submit" id="searchBtn" value="Search!"/>
-        </form>
-    </div>
-
-    <!--SearchBar END-->
-
-    <div class="sect"></div>
-    <div id="about" class="subSection subThree"></div>
-    <div class="sect"></div>
-    <div id="help" class="subSection subFour"></div>
 </div>
+
+<!--<div class="searchPageLore">-->
+<!--&lt;!&ndash;animation for the welcome&ndash;&gt;-->
+
+<!--<ul class="fly-in-text hidden">-->
+<!--<li>W</li>-->
+<!--<li>E</li>-->
+<!--<li>L</li>-->
+<!--<li>C</li>-->
+<!--<li>O</li>-->
+<!--<li>M</li>-->
+<!--<li>E</li>-->
+<!--</ul>-->
+<!--&lt;!&ndash;<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>&ndash;&gt;-->
+<!--<script type="text/javascript">-->
+<!--(function () {-->
+
+<!--setTimeout(function () {-->
+<!--$('.fly-in-text').removeClass('hidden');-->
+<!--}, 500);-->
+
+<!--})();-->
+<!--</script>-->
+
+<!--<div class="sect">-->
+<!--</div>-->
+
+<!--&lt;!&ndash;searchBar&ndash;&gt;-->
+
+<!--<div class="container">-->
+<!--<h4>Search for your excursion</h4>-->
+<!--<form action="nomeDellaPaginaPerDisplay" method="post">-->
+<!--<input type="text" id="searchBar" placeholder="Search..." maxlength="40"/>-->
+<!--<input type="submit" id="searchBtn" value="Search!"/>-->
+<!--</form>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;SearchBar END&ndash;&gt;-->
+
+<!--<div class="sect"></div>-->
+<!--<div id="about" class="subSection subThree"></div>-->
+<!--<div class="sect"></div>-->
+<!--<div id="help" class="subSection subFour"></div>-->
+<!--</div>-->

@@ -20,6 +20,8 @@ module app.search {
     ///////////////////////////////////////////////////////
 
     export interface ISearchCtrl {
+        longitude: number;
+        latitude: number;
     }
 
     ///////////////////////////////////////////////////////
@@ -28,9 +30,22 @@ module app.search {
 
     export class SearchCtrl implements ISearchCtrl {
 
-        constructor(public StartLoadingService: IStartLoadingService, public LoginService: ILoginService) {
-        }
+        longitude: number = 11.334813599999999;
+        latitude: number = 46.5037867;
 
+        constructor(public StartLoadingService: IStartLoadingService,
+                    public LoginService: ILoginService,
+                    public NgMap) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                        this.longitude = position.coords.longitude;
+                        this.latitude = position.coords.latitude;
+                        console.log(this.longitude);
+                        console.log(this.latitude);
+                    }
+                );
+            }
+        }
     }
 
     ///////////////////////////////////////////////////////
@@ -38,7 +53,7 @@ module app.search {
     ///////////////////////////////////////////////////////
 
     angular
-        .module('app.search', ['app.startloading', 'app.loginservice'])
+        .module('app.search', ['app.startloading', 'app.loginservice', 'ngMap'])
         .config(($routeProvider) => {
             $routeProvider.when('/search', {
                 templateUrl: '../../views/testsearchpage/searchpage.html',

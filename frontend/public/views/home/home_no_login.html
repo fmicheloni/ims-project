@@ -4,10 +4,10 @@
         <div style="background: orange; padding:40px; border: none">
             <h1 style="color: white"><b>The Excursionist</b></h1>
 
-            <form action="../../views/testsearchpage/searchpage.html" method="post">
+            <form method="post">
                 <input type="text" ng-model="homeNoLogCtrl.usernameLogin" placeholder="Username"
                        style="color:#a76500; border: none; border-radius: 3px"/>
-                <input type="text" ng-model="homeNoLogCtrl.passwordLogin" placeholder="Password"
+                <input type="password" ng-model="homeNoLogCtrl.passwordLogin" placeholder="Password"
                        style="color:#a76500; border: none; border-radius: 3px"/>
                 <input type="submit" id="btn btn-default" value="Log in" ng-click="homeNoLogCtrl.login()"/>
             </form>
@@ -20,9 +20,9 @@
 
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                        <label class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                            <input type="email" class="form-control" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group">
@@ -38,9 +38,10 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                        <label class="col-sm-2 control-label">Username</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                            <input ng-model="homeNoLogCtrl.usernameRegistration" type="text" class="form-control"
+                                   placeholder="Username">
                         </div>
                     </div>
                     <div class="form-group">
@@ -84,26 +85,91 @@
         </div>
     </div>
 
-    <div class="searchPageLore">
-        <div class="sect">
+    <div style="color: orange; padding:40px; font-family:century gothic;">
+        <h3 style="font-weight:lighter">Register to <b>The Excursionist</b></h3>
+
+        <div class="col-sm-8">
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Username</label>
+                    <div class="col-sm-10">
+                        <input ng-model="homeNoLogCtrl.usernameRegistration" type="email" class="form-control"
+                               placeholder="Username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Firstname</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" placeholder="Firstname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Lastname</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" placeholder="Lastname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Country</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" placeholder="Country">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">City</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" placeholder="City">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Confirm</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="Confirm password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Gender</label>
+                    <div class="col-sm-10">
+                        <label style="color: blue;" class="radio-inline"><input type="radio" name="optradio">Male</label>
+                        <label style="color: deeppink;" class="radio-inline"><input type="radio" name="optradio">Female</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Confirm</label>
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">
+                            Sign in
+                        </button>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default" ng-click="homeNoLogCtrl.goToLogin()">
+                            Back to Login
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
 
-        <!--Settings section-->
-        <div id="settings" class="subSection subOne">
-            <div class="settingsContainer">
-                <form name="personalInfo">
-                    <input class="userSettings" type="text" placeholder="Name" id="userName"/><br><br>
-                    <!-- <input class= "userSettings" type="image" placeholder="Image" id ="userImage"><br><br>-->
-                    <input class="userSettings" type="text" placeholder="Surname" id="userSurname"/><br><br>
-                    <input class="userSettings" type="text" placeholder="Current State" id="userState"><br><br>
-                    <input class="userSettings" type="text" placeholder="Current City" id="userAge"/><br><br>
-                    <input class="userSettings" type="text" placeholder="Age" id="userAge"/><br><br>
-                    <input class="userSettings" type="email" placeholder="Email" id="userEmail"/><br><br>
-                    <input class="userSubmit" type="submit" value="Submit"/>
-                    <input class="userSubmit backHover" style="background: #8bde13;" type="submit" value="Back to Login" ng-click="homeNoLogCtrl.goToLogin()"/>
-                </form>
-            </div>
+        <div class="col-sm-1">
         </div>
     </div>
-
 </div>

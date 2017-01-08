@@ -1,0 +1,78 @@
+<navbar-directive></navbar-directive>
+
+<br>
+<br>
+<br>
+
+<div class="account-page">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="img-responsive img-thumbnail" src="/api/account/public/{{accountCtrl.loggedUser.picture}}">
+            </div>
+
+            <div class="col-lg-8">
+                <h1>Account</h1>
+                <table>
+                    <tr>
+                        <td>
+                            <h3>Username&nbsp;&nbsp;&nbsp;</h3>
+                        </td>
+                        <td>
+                            <h3>{{accountCtrl.loggedUser.username}}</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>Name</h3>
+                        </td>
+                        <td>
+                            <h3>{{accountCtrl.loggedUser.name}}</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>Surname</h3>
+                        </td>
+                        <td>
+                            <h3>{{accountCtrl.loggedUser.surname}}</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>Birthday</h3>
+                        </td>
+                        <td>
+                            <h3>{{accountCtrl.loggedUser.dateOfBirth}}</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>Country</h3>
+                        </td>
+                        <td>
+                            <h3>{{accountCtrl.loggedUser.country}}</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>City</h3>
+                        </td>
+                        <td>
+                            <h3>{{accountCtrl.loggedUser.city}}</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>Gender</h3>
+                        </td>
+                        <td>
+                            <h3>{{accountCtrl.loggedUser.gender}}</h3>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
