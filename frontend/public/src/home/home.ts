@@ -9,6 +9,7 @@ module app.home {
     'use strict';
     import LoginService = app.loginservice.LoginService;
     import ILoginService = app.loginservice.ILoginService;
+    import ISettingsService = app.settings.ISettingsService;
 
     ///////////////////////////////////////////////////////
     //                     INTERFACES                    //
@@ -22,7 +23,10 @@ module app.home {
     ///////////////////////////////////////////////////////
 
     export class HomeCtrl implements IHomeCtrl {
-        constructor(public $scope: ng.IScope, public $cookies, public LoginService: ILoginService) {
+        constructor(public $scope: ng.IScope,
+                    public $cookies,
+                    public LoginService: ILoginService,
+                    public SettingsService: ISettingsService) {
         }
     }
 
@@ -31,7 +35,7 @@ module app.home {
     ///////////////////////////////////////////////////////
 
     angular
-        .module('app.home', ['ngRoute', 'ngCookies', 'app.loginservice'])
+        .module('app.home', ['ngRoute', 'ngCookies', 'app.loginservice', 'app.settings'])
         .config(($routeProvider) => {
             $routeProvider.when('/', {
                 templateUrl: '../../views/home/home.html',

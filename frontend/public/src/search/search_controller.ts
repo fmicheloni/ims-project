@@ -9,6 +9,7 @@ module app.search {
     'use strict';
     import IStartLoadingService = app.startloading.IStartLoadingService;
     import ILoginService = app.loginservice.ILoginService;
+    import ISettingsService = app.settings.ISettingsService;
 
     ///////////////////////////////////////////////////////
     //                       MODELS                      //
@@ -22,6 +23,8 @@ module app.search {
     export interface ISearchCtrl {
         longitude: number;
         latitude: number;
+
+        loadingImage: string;
     }
 
     ///////////////////////////////////////////////////////
@@ -29,22 +32,29 @@ module app.search {
     ///////////////////////////////////////////////////////
 
     export class SearchCtrl implements ISearchCtrl {
+        longitude: number;
+        latitude: number;
 
-        longitude: number = 11.334813599999999;
-        latitude: number = 46.5037867;
+        loadingImage: string = undefined;
 
         constructor(public StartLoadingService: IStartLoadingService,
                     public LoginService: ILoginService,
-                    public NgMap) {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                        this.longitude = position.coords.longitude;
-                        this.latitude = position.coords.latitude;
-                        console.log(this.longitude);
-                        console.log(this.latitude);
-                    }
-                );
+                    public NgMap,
+                    public SettingsService: ISettingsService) {
+
+            if(!this.StartLoadingService.informationLoaded) {
+                console.log('Loading user information...');
+                this.StartLoadingService.loadUserInfo(LoginService.loggedUser);
             }
+
+            this.loadingImage = 'dist/images/s3X06zT.jpg';
+
+            navigator.geolocation.getCurrentPosition(this.setLocations.bind(this));
+        }
+
+        setLocations(position): void {
+            this.longitude = position.coords.longitude;
+            this.latitude = position.coords.latitude;
         }
     }
 
@@ -53,7 +63,7 @@ module app.search {
     ///////////////////////////////////////////////////////
 
     angular
-        .module('app.search', ['app.startloading', 'app.loginservice', 'ngMap'])
+        .module('app.search', ['app.startloading', 'app.loginservice', 'ngMap', 'angularSpinner', 'app.settings'])
         .config(($routeProvider) => {
             $routeProvider.when('/search', {
                 templateUrl: '../../views/testsearchpage/searchpage.html',

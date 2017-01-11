@@ -10,7 +10,10 @@
     "ngstorage": "^0.3.11",
     "angular-spinner": "^0.8.1",
     "angular-growl-v2": "^0.7.9",
-    "ngmap": "^1.17.8"
+    "ngmap": "^1.17.8",
+    "hover": "Hover#^2.1.0",
+    "angular-translate": "^2.13.1",
+    "angular-sanitize": "^1.6.1"
   },
   "overrides": {
     "bootstrap": {
@@ -33,6 +36,6 @@
     }
   },
   "resolutions": {
-    "angular": "1.6.1"
+    "angular": ">=1.2.1"
   }
 }

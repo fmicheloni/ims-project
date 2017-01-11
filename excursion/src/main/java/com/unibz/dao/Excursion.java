@@ -19,13 +19,13 @@ public class Excursion {
     private String title;
 
     @Column( nullable = false )
-    private String briefDescription;
-
-    @Column( nullable = false )
     private String longDescription;
 
     @Column( nullable = false )
-    private String type;
+    private String placeTarget;
+
+    @Column( nullable = false )
+    private String peopleTarget;
 
     @Column( nullable = false )
     private String coordinates;
@@ -51,14 +51,6 @@ public class Excursion {
         this.title = title;
     }
 
-    public String getBriefDescription() {
-        return briefDescription;
-    }
-
-    public void setBriefDescription( final String briefDescription ) {
-        this.briefDescription = briefDescription;
-    }
-
     public String getLongDescription() {
         return longDescription;
     }
@@ -68,11 +60,11 @@ public class Excursion {
     }
 
     public String getType() {
-        return type;
+        return placeTarget;
     }
 
     public void setType( final String type ) {
-        this.type = type;
+        this.placeTarget = type;
     }
 
     public String getCoordinates() {
@@ -120,18 +112,13 @@ public class Excursion {
         return this;
     }
 
-    public Excursion briefDescription( String briefDescription ) {
-        this.briefDescription = briefDescription;
-        return this;
-    }
-
     public Excursion longDescription( String longDescription ) {
         this.longDescription = longDescription;
         return this;
     }
 
     public Excursion type( String type ) {
-        this.type = type;
+        this.placeTarget = type;
         return this;
     }
 
@@ -160,12 +147,45 @@ public class Excursion {
         return this;
     }
 
+    public long getId() {
+        return id;
+    }
+    public void setId( final long id ) {
+        this.id = id;
+    }
+    public String getPlaceTarget() {
+        return placeTarget;
+    }
+    public void setPlaceTarget( final String placeTarget ) {
+        this.placeTarget = placeTarget;
+    }
+    public String getPeopleTarget() {
+        return peopleTarget;
+    }
+    public void setPeopleTarget( final String peopleTarget ) {
+        this.peopleTarget = peopleTarget;
+    }
+
+    public Excursion id( long id ) {
+        this.id = id;
+        return this;
+    }
+    public Excursion placeTarget( String placeTarget ) {
+        this.placeTarget = placeTarget;
+        return this;
+    }
+    public Excursion peopleTarget( String peopleTarget ) {
+        this.peopleTarget = peopleTarget;
+        return this;
+    }
+
     @Override public String toString() {
         return "Excursion{" +
-                "title='" + title + '\'' +
-                ", briefDescription='" + briefDescription + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", longDescription='" + longDescription + '\'' +
-                ", type='" + type + '\'' +
+                ", placeTarget='" + placeTarget + '\'' +
+                ", peopleTarget='" + peopleTarget + '\'' +
                 ", coordinates='" + coordinates + '\'' +
                 ", image='" + image + '\'' +
                 ", username='" + username + '\'' +

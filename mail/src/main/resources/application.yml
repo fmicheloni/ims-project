@@ -44,10 +44,10 @@ eureka:
       leaseRenewalIntervalInSeconds: 1
       leaseExpirationDurationInSeconds: 2
 
-# development set to true avoid mail sending
+# development set to true avoids mail sending
 custommail:
-  development: false
-  from: theexcursioner@noreply.com
+  development: true
+  from: theexcursionist@noreply.com
 
 queue:
   name: ims-queue

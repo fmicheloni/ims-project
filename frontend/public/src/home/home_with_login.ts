@@ -30,6 +30,7 @@ module app.home.withlog {
     ///////////////////////////////////////////////////////
 
     export interface IHomeWithLogCtrl {
+        loadingImage: string;
     }
 
     ///////////////////////////////////////////////////////
@@ -38,11 +39,14 @@ module app.home.withlog {
 
     export class HomeWithLogCtrl implements IHomeWithLogCtrl {
 
+        loadingImage: string = undefined;
+
         constructor(public LoginService: ILoginService, public StartLoadingService: IStartLoadingService, public $window) {
             if(!this.StartLoadingService.informationLoaded) {
                 console.log('Loading user information...');
                 this.StartLoadingService.loadUserInfo(LoginService.loggedUser);
             }
+            this.loadingImage = 'dist/images/s3X06zT.jpg';
         }
     }
 

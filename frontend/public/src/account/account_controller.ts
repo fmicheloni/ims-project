@@ -18,6 +18,8 @@ module app.account {
 
     export interface IAccountCtrl {
         loggedUser: CurrentUser;
+
+        loadingImage: string;
     }
 
     ///////////////////////////////////////////////////////
@@ -25,14 +27,20 @@ module app.account {
     ///////////////////////////////////////////////////////
 
     export class AccountCtrl implements IAccountCtrl {
+        loadingImage: string;
         loggedUser: app.startloading.CurrentUser = undefined;
 
         constructor(public $scope: ng.IScope,
                     public LoginService: ILoginService,
                     public StartLoadingService: IStartLoadingService) {
+            this.loggedUser = this.StartLoadingService.loggedUserInfo;
 
-            this.loggedUser = StartLoadingService.loggedUserInfo;
+            if(!this.StartLoadingService.informationLoaded) {
+                this.loadingImage = 'dist/images/s3X06zT.jpg';
 
+                console.log('Loading user information...');
+                this.StartLoadingService.loadUserInfo(LoginService.loggedUser)
+            }
         }
     }
 

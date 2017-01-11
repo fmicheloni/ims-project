@@ -7,6 +7,16 @@ var apiProxy = httpProxy.createProxyServer();
 
 var port = process.env.PORT || 80;
 
+
+var fs = require('fs');
+var http = require('http');
+var https = require('https');
+var privateKey  = fs.readFileSync('server.key', 'utf8');
+var certificate = fs.readFileSync('server.crt', 'utf8');
+var ca = fs.readFileSync('ca.crt', 'utf8');
+
+var credentials = {key: privateKey, cert: certificate, ca: ca, requestCert: true, rejectUnauthorized: false};
+
 // serves all nested static files
 app.use(express.static("public/src/app"));
 app.use(express.static("public"));
@@ -40,6 +50,17 @@ app.use(function(req, res, next){
     res.type('txt').send('Not found');
 });
 
-app.listen(port, function(err){
-    console.log("running server on port "+ port);
+app.get('/', function(req,res) {
+    res.send('hello');
+});
+
+var httpsServer = https.createServer(credentials, app);
+var httpServer = http.createServer(app);
+
+httpsServer.listen(443, function(err){
+    console.log("running server over https port "+ 443);
+});
+
+httpServer.listen(80, function(err){
+    console.log("running server over http on port "+ 80);
 });

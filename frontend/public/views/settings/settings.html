@@ -1,0 +1,32 @@
+<navbar-directive></navbar-directive>
+
+<!-- Search bar -->
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-8">
+            <h1>{{ 'SETTINGS' | translate}}</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <h3>{{ 'LANGUAGE_TITLE' | translate}}</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <select class="form-control" id="sel1" ng-model="settingsCtrl.language"
+                    ng-change="settingsCtrl.changeLanguage()">
+                <option>English</option>
+                <option>Italiano</option>
+            </select>
+        </div>
+    </div>
+</div>

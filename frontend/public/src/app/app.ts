@@ -10,5 +10,41 @@ angular.module('imsFrontendApp', [
     'app.navbar',
     'app.search',
     'app.account',
-    'ngRoute'
-]);
+    'app.myexcursions',
+    'app.settings',
+    'app.settingsctrl',
+    'ngRoute',
+    'pascalprecht.translate',
+    'ngSanitize'
+]).config(($translateProvider, $locationProvider) => {
+    $translateProvider.useSanitizeValueStrategy('sanitize');
+    $translateProvider.translations('English', {
+        // settings page
+        'LANGUAGE_TITLE': 'Language',
+        'SETTINGS': 'Settings',
+
+        // navbar
+        'HOME_NAV': 'Home',
+        'SEARCH_NAV': 'Search',
+        'ACCOUNT_NAV': 'Account',
+        'SETTINGS_NAV': 'Settings',
+        'LOGOUT_NAV': 'Logout',
+        'LOGGED_AS_NAV': 'Logged as'
+    });
+    $translateProvider.translations('Italiano', {
+        // settings page
+        'LANGUAGE_TITLE': 'Lingua',
+        'SETTINGS': 'Impostazioni',
+
+        // navbar
+        'HOME_NAV': 'Home',
+        'SEARCH_NAV': 'Cerca',
+        'ACCOUNT_NAV': 'Profilo',
+        'SETTINGS_NAV': 'Impostazioni',
+        'LOGOUT_NAV': 'Logout',
+        'LOGGED_AS_NAV': 'Loggato come'
+    });
+    $translateProvider.preferredLanguage('English');
+
+    $locationProvider.html5Mode(false).hashPrefix('');
+});
