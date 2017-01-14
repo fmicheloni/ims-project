@@ -10,6 +10,7 @@ module app.myexcursions {
     import IStartLoadingService = app.startloading.IStartLoadingService;
     import ILoginService = app.loginservice.ILoginService;
     import IExcursionService = app.excursions.IExcursionService;
+    import Excursion = app.excursions.Excursion;
 
     ///////////////////////////////////////////////////////
     //                       MODELS                      //
@@ -35,6 +36,14 @@ module app.myexcursions {
         position: string;
 
         croppedDataUrl: any;
+
+        myExcursions: Array<Excursion>;
+
+        showProductInfo(excursion: Excursion): void;
+
+        isDisplayingExcursion: boolean;
+        displayedExcursion: Excursion;
+        goBackFromExcursion(): void;
     }
 
     ///////////////////////////////////////////////////////
@@ -42,6 +51,10 @@ module app.myexcursions {
     ///////////////////////////////////////////////////////
 
     export class ExcursionsCtrl implements IExcursionsCtrl {
+        displayedExcursion: app.excursions.Excursion = undefined;
+        isDisplayingExcursion: boolean = false;
+
+        myExcursions: Array<Excursion> = [];
 
         title: string = undefined;
         description: string = undefined;
@@ -59,6 +72,8 @@ module app.myexcursions {
             this.isAddingExcursion = false;
 
             console.log(this.ExcursionService);
+
+            this.myExcursions = this.ExcursionService.myExcursions;
         }
 
         goToAddingPage(): void {
@@ -78,6 +93,15 @@ module app.myexcursions {
                 this.description,
                 this.targetPlace,
                 this.targetPeople);
+        }
+
+        showProductInfo(excursion: app.excursions.Excursion): void {
+            this.isDisplayingExcursion = true;
+            this.displayedExcursion = excursion;
+        }
+
+        goBackFromExcursion(): void {
+            this.isDisplayingExcursion = false;
         }
     }
 

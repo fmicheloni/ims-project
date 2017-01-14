@@ -2,39 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b744eaad-2378-4442-893f-773232aa2e23" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/repository/ExcursionRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/service/ExcursionService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/service/impl/ExcursionServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/src/app/excursion_service.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/myexcursions/style/myexcursion.scss" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../account/src/main/java/com/unibz/configuration/DataSourceConfiguration.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../gateway/src/main/java/com/unibz/configuration/BeanConfiguration.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/dao/Excursion.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/entity/Excursion.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/entity/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../account/src/main/java/com/unibz/entity/User.java" afterPath="$PROJECT_DIR$/../account/src/main/java/com/unibz/entity/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../authentication/authentication.iml" afterPath="$PROJECT_DIR$/../authentication/authentication.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../docker-compose/docker-compose-ims.yml" afterPath="$PROJECT_DIR$/../docker-compose/docker-compose-ims.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/pom.xml" afterPath="$PROJECT_DIR$/../excursion/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/src/main/java/ExcursionApplication.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/ExcursionApplication.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/controller/ExcursionController.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/controller/ExcursionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/entity/Excursion.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/entity/Excursion.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/repository/ExcursionRepository.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/repository/ExcursionRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/service/ExcursionService.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/service/ExcursionService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/service/impl/ExcursionServiceImpl.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/service/impl/ExcursionServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/app.css" afterPath="$PROJECT_DIR$/public/dist/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/app.js" afterPath="$PROJECT_DIR$/public/dist/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/app.min.css" afterPath="$PROJECT_DIR$/public/dist/app.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/app.min.js" afterPath="$PROJECT_DIR$/public/dist/app.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/app.min.js.map" afterPath="$PROJECT_DIR$/public/dist/app.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/app/app.ts" afterPath="$PROJECT_DIR$/public/src/app/app.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/app/load_starting_info_service.ts" afterPath="$PROJECT_DIR$/public/src/app/load_starting_info_service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/home/home_with_login.ts" afterPath="$PROJECT_DIR$/public/src/home/home_with_login.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/app/excursion_service.ts" afterPath="$PROJECT_DIR$/public/src/app/excursion_service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts" afterPath="$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/search/search_controller.ts" afterPath="$PROJECT_DIR$/public/src/search/search_controller.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/myexcursions/myexcursion.html" afterPath="$PROJECT_DIR$/public/views/myexcursions/myexcursion.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/navbar/navbar.html" afterPath="$PROJECT_DIR$/public/views/navbar/navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/testsearchpage/searchpage.html" afterPath="$PROJECT_DIR$/public/views/testsearchpage/searchpage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/com/unibz/GatewayApplication.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/com/unibz/GatewayApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/com/unibz/filter/AuthFilter.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/com/unibz/filter/AuthFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/resources/application.yml" afterPath="$PROJECT_DIR$/../gateway/src/main/resources/application.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/test/java/com/unibz/GatewayApplicationTests.java" afterPath="$PROJECT_DIR$/../gateway/src/test/java/com/unibz/GatewayApplicationTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pom.xml" afterPath="$PROJECT_DIR$/../pom.xml" />
     </list>
     <ignored path="frontend.iws" />
@@ -61,15 +46,15 @@
       <file leaf-file-name="myexcursion.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/myexcursions/myexcursion.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="126" column="76" lean-forward="false" selection-start-line="126" selection-start-column="62" selection-end-line="126" selection-end-column="76" />
+            <state relative-caret-position="707">
+              <caret line="163" column="86" lean-forward="false" selection-start-line="163" selection-start-column="67" selection-end-line="163" selection-end-column="86" />
               <folding>
-                <element signature="e#2731#2737#0" expanded="true" />
-                <element signature="e#2737#2743#0" expanded="true" />
-                <element signature="e#2743#2749#0" expanded="true" />
-                <element signature="e#3791#3797#0" expanded="true" />
-                <element signature="e#3797#3803#0" expanded="true" />
-                <element signature="e#3803#3809#0" expanded="true" />
+                <element signature="e#2833#2839#0" expanded="true" />
+                <element signature="e#2839#2845#0" expanded="true" />
+                <element signature="e#2845#2851#0" expanded="true" />
+                <element signature="e#3937#3943#0" expanded="true" />
+                <element signature="e#3943#3949#0" expanded="true" />
+                <element signature="e#3949#3955#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,21 +70,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myexcursions_controller.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="myexcursions_controller.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="75" column="46" lean-forward="false" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
+            <state relative-caret-position="386">
+              <caret line="94" column="35" lean-forward="true" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="excursion_service.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="excursion_service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/src/app/excursion_service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+            <state relative-caret-position="300">
+              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -108,7 +93,7 @@
       <file leaf-file-name="app.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/src/app/app.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
+            <state relative-caret-position="105">
               <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
               <folding />
             </state>
@@ -221,12 +206,12 @@
         <option value="$PROJECT_DIR$/public/views/testsearchpage/searchpage.html" />
         <option value="$PROJECT_DIR$/public/views/navbar/navbar.html" />
         <option value="$PROJECT_DIR$/public/views/myexcursions/style/myexcursion.scss" />
-        <option value="$PROJECT_DIR$/public/views/myexcursions/myexcursion.html" />
         <option value="$PROJECT_DIR$/public/src/app/app.ts" />
         <option value="$PROJECT_DIR$/public/src/app/load_starting_info_service.ts" />
         <option value="$PROJECT_DIR$/public/src/home/home_with_login.ts" />
-        <option value="$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts" />
         <option value="$PROJECT_DIR$/public/src/app/excursion_service.ts" />
+        <option value="$PROJECT_DIR$/public/views/myexcursions/myexcursion.html" />
+        <option value="$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts" />
       </list>
     </option>
   </component>
@@ -984,27 +969,27 @@
       <workItem from="1483720947372" duration="1687000" />
       <workItem from="1483790306479" duration="5480000" />
       <workItem from="1483871240847" duration="45059000" />
+      <workItem from="1484407023319" duration="4534000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111571000" />
+    <option name="totallyTimeSpent" value="116105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1012,6 +997,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1081,7 +1067,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="1275">
             <caret line="85" column="16" lean-forward="false" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1091,26 +1076,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="686">
           <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/web/js/easing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/web/js/easing.js" />
+    <entry file="file://$PROJECT_DIR$/public/views/web/index.html" />
     <entry file="file://$PROJECT_DIR$/public/views/testsearchpage/style/searchpage.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="497">
@@ -1119,14 +1089,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Fabrizio.cer">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Fabrizio.cer" />
     <entry file="file://$PROJECT_DIR$/public/src/images/s3X06zT.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1136,7 +1099,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1725">
           <caret line="115" column="39" lean-forward="false" selection-start-line="115" selection-start-column="39" selection-end-line="115" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1165,28 +1127,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="96" column="27" lean-forward="false" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h3#0;n#div#1;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#8;n#form#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#label#1;n#div#0;n#div#8;n#form#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/app/login_service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1755">
-          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1194,9 +1134,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="6" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-          <folding>
-            <marker date="1484162466000" expanded="true" signature="899:906" ph="{&quot;angular&quot;: &quot;1.6.1&quot;...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1253,7 +1190,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1261,7 +1197,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="6" lean-forward="true" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1269,7 +1204,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="86">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1277,19 +1211,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
           <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/account/account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="78" column="6" lean-forward="false" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
-          <folding>
-            <element signature="e#519#525#0" expanded="false" />
-            <element signature="e#525#531#0" expanded="false" />
-            <element signature="e#531#537#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1297,7 +1218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
           <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1315,7 +1235,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1343,34 +1262,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/images/Edit fiddle - JSFiddle.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/images/Edit fiddle - JSFiddle.htm" />
     <entry file="file://$PROJECT_DIR$/public/src/home/home_with_login.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
           <caret line="46" column="46" lean-forward="true" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/src/app/app.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
+        <state relative-caret-position="105">
           <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/app/load_starting_info_service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="70" column="54" lean-forward="false" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="81" />
           <folding />
         </state>
       </provider>
@@ -1387,7 +1290,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1395,9 +1297,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
           <caret line="2009" column="38" lean-forward="true" selection-start-line="2009" selection-start-column="38" selection-end-line="2009" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1406,7 +1305,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1415,38 +1314,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="860" column="0" lean-forward="true" selection-start-line="860" selection-start-column="0" selection-end-line="860" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/myexcursions/myexcursion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="126" column="76" lean-forward="false" selection-start-line="126" selection-start-column="62" selection-end-line="126" selection-end-column="76" />
-          <folding>
-            <element signature="e#2731#2737#0" expanded="true" />
-            <element signature="e#2737#2743#0" expanded="true" />
-            <element signature="e#2743#2749#0" expanded="true" />
-            <element signature="e#3791#3797#0" expanded="true" />
-            <element signature="e#3797#3803#0" expanded="true" />
-            <element signature="e#3803#3809#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="75" column="46" lean-forward="false" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/myexcursions/style/myexcursion.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1462,14 +1329,68 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
           <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/app/load_starting_info_service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="77" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/app/login_service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="21" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/account/account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="71" column="33" lean-forward="true" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/src/app/excursion_service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+        <state relative-caret-position="300">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/myexcursions/style/myexcursion.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/myexcursions/myexcursion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="163" column="86" lean-forward="false" selection-start-line="163" selection-start-column="67" selection-end-line="163" selection-end-column="86" />
+          <folding>
+            <element signature="e#2833#2839#0" expanded="true" />
+            <element signature="e#2839#2845#0" expanded="true" />
+            <element signature="e#2845#2851#0" expanded="true" />
+            <element signature="e#3937#3943#0" expanded="true" />
+            <element signature="e#3943#3949#0" expanded="true" />
+            <element signature="e#3949#3955#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="94" column="35" lean-forward="true" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
           <folding />
         </state>
       </provider>

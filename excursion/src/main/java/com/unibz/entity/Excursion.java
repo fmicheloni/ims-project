@@ -32,7 +32,6 @@ public class Excursion {
     @Column( nullable = false )
     private String image;
 
-    // foreign key
     @Column( nullable = false )
     private String username;
 
@@ -81,14 +80,6 @@ public class Excursion {
         this.image = image;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername( final String username ) {
-        this.username = username;
-    }
-
     public int getLikes() {
         return likes;
     }
@@ -130,11 +121,6 @@ public class Excursion {
         return this;
     }
 
-    public Excursion username( String username ) {
-        this.username = username;
-        return this;
-    }
-
     public Excursion likes( int likes ) {
         this.likes = likes;
         return this;
@@ -148,48 +134,60 @@ public class Excursion {
     public Long getId() {
         return id;
     }
+
     public void setId( final Long id ) {
         this.id = id;
     }
+
     public String getPlaceTarget() {
         return placeTarget;
     }
+
     public void setPlaceTarget( final String placeTarget ) {
         this.placeTarget = placeTarget;
     }
+
     public String getPeopleTarget() {
         return peopleTarget;
     }
+
     public void setPeopleTarget( final String peopleTarget ) {
         this.peopleTarget = peopleTarget;
+    }
+
+    public String getLongDescription() {
+        return longDescription;
+    }
+
+    public void setLongDescription( final String longDescription ) {
+        this.longDescription = longDescription;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername( final String username ) {
+        this.username = username;
     }
 
     public Excursion id( Long id ) {
         this.id = id;
         return this;
     }
+
     public Excursion placeTarget( String placeTarget ) {
         this.placeTarget = placeTarget;
         return this;
     }
+
     public Excursion peopleTarget( String peopleTarget ) {
         this.peopleTarget = peopleTarget;
         return this;
     }
 
-    @Override
-    public String toString() {
-        return "Excursion{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", longDescription='" + longDescription + '\'' +
-                ", placeTarget='" + placeTarget + '\'' +
-                ", peopleTarget='" + peopleTarget + '\'' +
-                ", coordinates='" + coordinates + '\'' +
-                ", image='" + image + '\'' +
-                ", username='" + username + '\'' +
-                ", likes=" + likes +
-                ", insertionDate=" + insertionDate +
-                '}';
+    public Excursion username( String username ) {
+        this.username = username;
+        return this;
     }
 }

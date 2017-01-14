@@ -1,22 +1,24 @@
 package com.unibz.controller;
 
+import com.google.gson.Gson;
 import com.unibz.entity.Excursion;
 import com.unibz.service.ExcursionService;
 import org.apache.tika.Tika;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by fabriziomicheloni on 06/01/17.
@@ -96,6 +98,37 @@ public class ExcursionController {
         return rawExtension.substring( rawExtension.indexOf( '/' ) + 1 );
     }
 
-    // TODO search an excursion
+    @RequestMapping( value = "/myexcursions", method = RequestMethod.GET )
+    public @ResponseBody ResponseEntity myExcursion( @RequestParam( value = "username" ) String username ) {
+        final List<Excursion> byUsername = this.excursionService.findByUsername( username );
 
+        Gson gson = new Gson();
+
+        return ResponseEntity.ok( gson.toJson( byUsername ) );
+    }
+
+    @RequestMapping( value = "/public/{imageName:.+}", method = RequestMethod.GET )
+    public void serveImage( @PathVariable String imageName, HttpServletResponse response ) throws IOException {
+
+        final String finalImagePath = String.format( "%s%s", storePath, imageName );
+
+        logger.debug( "Serving image [{}]", finalImagePath );
+
+        InputStream in = new FileInputStream( finalImagePath );
+        response.setContentType( getImageMediaType( finalImagePath ) );
+        IOUtils.copy( in, response.getOutputStream() );
+        in.close();
+    }
+
+    private String getImageMediaType( String imageName ) {
+        if ( imageName.endsWith( "png" ) ) {
+            return MediaType.IMAGE_PNG_VALUE;
+        }
+
+        if ( imageName.endsWith( "gif" ) ) {
+            return MediaType.IMAGE_GIF_VALUE;
+        }
+
+        return MediaType.IMAGE_JPEG_VALUE;
+    }
 }

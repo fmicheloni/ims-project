@@ -4,138 +4,164 @@
 <br>
 <br>
 
-<div class="myexcursion">
-    <div ng-if="excursionsCtrl.isAddingExcursion == false">
-        <div class="container">
-            <div class="row">
-                <h1>My Excursions</h1>
+<div ng-if="excursionsCtrl.isDisplayingExcursion == false">
+    <div class="myexcursion">
+        <div ng-if="excursionsCtrl.isAddingExcursion == false">
+            <div class="container">
+                <div class="row">
+                    <h1>My Excursions</h1>
+                </div>
+
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Info</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="excursion in excursionsCtrl.myExcursions">
+                            <td>{{excursion.title}}</td>
+                            <td>
+                                <button class="btn btn-primary" ng-click="excursionsCtrl.showProductInfo(excursion)">
+                                    Info
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <button class="btn btn-success" ng-click="excursionsCtrl.goToAddingPage()">Add new excursion
+                    </button>
+                </div>
             </div>
+        </div>
 
-            <div class="row">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Info</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <!--<tr>-->
-                    <!--<td>John</td>-->
-                    <!--<td>Doe</td>-->
-                    <!--<td>john@example.com</td>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                    <!--<td>Mary</td>-->
-                    <!--<td>Moe</td>-->
-                    <!--<td>mary@example.com</td>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                    <!--<td>July</td>-->
-                    <!--<td>Dooley</td>-->
-                    <!--<td>july@example.com</td>-->
-                    <!--</tr>-->
-                    </tbody>
-                </table>
-            </div>
+        <div ng-if="excursionsCtrl.isAddingExcursion == true">
+            <div class="container">
+                <div class="row">
+                    <h1>Add New Excursion</h1>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
 
-            <br>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Title</label>
+                                <div class="col-sm-10">
+                                    <input ng-model="excursionsCtrl.title" type="text" class="form-control"
+                                           placeholder="Title">
+                                </div>
+                            </div>
 
-            <div class="row">
-                <button class="btn btn-success" ng-click="excursionsCtrl.goToAddingPage()">Add new excursion</button>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Description</label>
+                                <div class="col-sm-10">
+                            <textarea ng-model="excursionsCtrl.description" class="form-control" rows="5" id="comment"
+                                      placeholder="Description"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <label class="col-sm-2 control-label">Place&nbsp;&nbsp;&nbsp;</label>
+                                <div class="col-md-4">
+                                    <label class="radio"><input ng-model="excursionsCtrl.targetPlace" type="radio"
+                                                                name="targetPlace" value="Lake">Lake</label>
+                                    <label class="radio"><input ng-model="excursionsCtrl.targetPlace" type="radio"
+                                                                name="targetPlace" value="Forest">Forest</label>
+                                    <label class="radio"><input ng-model="excursionsCtrl.targetPlace" type="radio"
+                                                                name="targetPlace" value="Sea">Sea</label>
+                                    <label class="radio"><input ng-model="excursionsCtrl.targetPlace" type="radio"
+                                                                name="targetPlace" value="Mountain">Mountain</label>
+                                </div>
+
+                                <label class="col-sm-2 control-label">Target&nbsp;&nbsp;&nbsp;</label>
+                                <div class="col-md-4">
+                                    <label class="radio"><input ng-model="excursionsCtrl.targetPeople" type="radio"
+                                                                name="targetPeople" value="Family">Family</label>
+                                    <label class="radio"><input
+                                            ng-model="excursionsCtrl.targetPeople" type="radio"
+                                            name="targetPeople" value="Trekking">Trekking</label>
+                                    <label class="radio"><input
+                                            ng-model="excursionsCtrl.targetPeople" type="radio"
+                                            name="targetPeople" value="Culture">Culture</label>
+                                    <label class="radio"><input
+                                            ng-model="excursionsCtrl.targetPeople" type="radio"
+                                            name="targetPeople" value="Culinary">Culinary</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Position</label>
+                                <div class="col-sm-10">
+                                    <input ng-model="excursionsCtrl.position" type="text" class="form-control"
+                                           placeholder="Position">
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="form-group">
+                                <button ngf-select ng-model="excursionsCtrl.picFile" accept="image/*">
+                                    Select Picture
+                                </button>
+                                <div ngf-drop ng-model="excursionsCtrl.picFile" ngf-pattern="image/*"
+                                     class="cropArea">
+                                    <img-crop image="excursionsCtrl.picFile  | ngfDataUrl"
+                                              result-image="excursionsCtrl.croppedDataUrl"
+                                              ng-init="excursionsCtrl.croppedDataUrl=''">
+                                    </img-crop>
+                                </div>
+                                <div>
+                                    <img ng-src="{{excursionsCtrl.croppedDataUrl}}"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <button class="btn btn-danger" ng-click="excursionsCtrl.goBack()">Back</button>
+                    <button class="btn btn-success" ng-click="excursionsCtrl.addExcursion()">Add</button>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div ng-if="excursionsCtrl.isAddingExcursion == true">
-        <div class="container">
-            <div class="row">
-                <h1>Add New Excursion</h1>
-            </div>
-            <div class="row">
-                <div class="col-sm-8">
+<div ng-if="excursionsCtrl.isDisplayingExcursion == true">
+    <div class="container">
+        <div class="col-lg-4">
+            <img class="img-responsive img-thumbnail"
+                 src="/api/excursion/public/{{excursionsCtrl.displayedExcursion.image}}">
+        </div>
 
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Title</label>
-                            <div class="col-sm-10">
-                                <input ng-model="excursionsCtrl.title" type="text" class="form-control"
-                                       placeholder="Title">
-                            </div>
-                        </div>
+        <div class="col-lg-8">
+            <h1>{{excursionsCtrl.displayedExcursion.title}}</h1>
+            <p>Insertion date: {{excursionsCtrl.displayedExcursion.insertionDate}}</p>
 
+            <h3>Description</h3>
+            <p>{{excursionsCtrl.displayedExcursion.longDescription}}</p>
 
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Description</label>
-                            <div class="col-sm-10">
-                            <textarea ng-model="excursionsCtrl.description" class="form-control" rows="5" id="comment"
-                                      placeholder="Description"></textarea>
-                            </div>
-                        </div>
+            <h4>People Target</h4>
+            <p>{{excursionsCtrl.displayedExcursion.peopleTarget}}</p>
 
-                        <div class="filter-group">
-                            <label class="col-sm-2 control-label">Place&nbsp;&nbsp;&nbsp;</label>
-                            <div class="col-md-4">
-                                <label class="radio"><input ng-model="excursionsCtrl.targetPlace" type="radio"
-                                                            name="targetPlace" value="Lake">Lake</label>
-                                <label class="radio"><input ng-model="excursionsCtrl.targetPlace" type="radio"
-                                                            name="targetPlace" value="Forest">Forest</label>
-                                <label class="radio"><input ng-model="excursionsCtrl.targetPlace" type="radio"
-                                                            name="targetPlace" value="Sea">Sea</label>
-                                <label class="radio"><input ng-model="excursionsCtrl.targetPlace" type="radio"
-                                                            name="targetPlace" value="Mountain">Mountain</label>
-                            </div>
+            <h4>Place Target</h4>
+            <p>{{excursionsCtrl.displayedExcursion.placeTarget}}</p>
 
-                            <label class="col-sm-2 control-label">Target&nbsp;&nbsp;&nbsp;</label>
-                            <div class="col-md-4">
-                                <label class="radio"><input ng-model="excursionsCtrl.targetPeople" type="radio"
-                                                            name="targetPeople" value="Family">Family</label>
-                                <label class="radio"><input
-                                        ng-model="excursionsCtrl.targetPeople" type="radio"
-                                        name="targetPeople" value="Trekking">Trekking</label>
-                                <label class="radio"><input
-                                        ng-model="excursionsCtrl.targetPeople" type="radio"
-                                        name="targetPeople" value="Culture">Culture</label>
-                                <label class="radio"><input
-                                        ng-model="excursionsCtrl.targetPeople" type="radio"
-                                        name="targetPeople" value="Culinary">Culinary</label>
-                            </div>
-                        </div>
+            <h5>Likes</h5>
+            <p>{{excursionsCtrl.displayedExcursion.likes}}</p>
+        </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Position</label>
-                            <div class="col-sm-10">
-                                <input ng-model="excursionsCtrl.position" type="text" class="form-control"
-                                       placeholder="Position">
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="form-group">
-                            <button ngf-select ng-model="excursionsCtrl.picFile" accept="image/*">
-                                Select Picture
-                            </button>
-                            <div ngf-drop ng-model="excursionsCtrl.picFile" ngf-pattern="image/*"
-                                 class="cropArea">
-                                <img-crop image="excursionsCtrl.picFile  | ngfDataUrl"
-                                          result-image="excursionsCtrl.croppedDataUrl"
-                                          ng-init="excursionsCtrl.croppedDataUrl=''">
-                                </img-crop>
-                            </div>
-                            <div>
-                                <img ng-src="{{excursionsCtrl.croppedDataUrl}}"/>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="row">
-                <button class="btn btn-danger" ng-click="excursionsCtrl.goBack()">Back</button>
-                <button class="btn btn-success" ng-click="excursionsCtrl.addExcursion()">Add</button>
-            </div>
+        <div>
+            <button class="btn btn-error" ng-click="excursionsCtrl.goBackFromExcursion()">Go back</button>
         </div>
     </div>
 </div>

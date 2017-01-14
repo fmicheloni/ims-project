@@ -11,11 +11,34 @@ module app.excursions {
 
 
     ///////////////////////////////////////////////////////
+    //                       MODELS                      //
+    ///////////////////////////////////////////////////////
+
+    export class Excursion {
+        id: number;
+        image: string;
+        insertionDate: Date;
+        likes: number;
+        longDescription: string;
+        peopleTarget: string;
+        placeTarget: string;
+        title: string;
+        username: string;
+    }
+
+    ///////////////////////////////////////////////////////
     //                     INTERFACES                    //
     ///////////////////////////////////////////////////////
 
     export interface IExcursionService {
         loadExcursion(file, title, description, place, people): void;
+
+        getMyExcursions(): void;
+
+        myExcursions: Array<Excursion>;
+
+        // cache the excursions in the local service
+        areMyExcursionsAlreadyLoaded: boolean;
     }
 
     ///////////////////////////////////////////////////////
@@ -24,8 +47,11 @@ module app.excursions {
 
     export class ExcursionService implements IExcursionService {
 
-        constructor(public Upload, public $localStorage) {
+        myExcursions: Array<app.excursions.Excursion> = [];
+        areMyExcursionsAlreadyLoaded: boolean = false;
 
+        constructor(public Upload, public $localStorage, public $http) {
+            this.getMyExcursions();
         }
 
         loadExcursion(fileIn, titleIn, descriptionIn, placeIn, peopleIn): void {
@@ -44,6 +70,22 @@ module app.excursions {
                 console.log(response.data);
             });
         }
+
+        getMyExcursions(): void {
+            if(!this.areMyExcursionsAlreadyLoaded) {
+                let url = '/api/excursion/myexcursions?username=' + this.$localStorage.username;
+                console.log(url);
+                this.$http.get(url).then((response) => {
+                    let myExcursions: Array<app.excursions.Excursion> = response.data;
+                    for(let excursion of myExcursions) {
+                        this.myExcursions.push(excursion);
+                    }
+                    this.areMyExcursionsAlreadyLoaded = true;
+                }, function (response) {
+                    console.log('Error', response);
+                });
+            }
+        }
     }
 
     ///////////////////////////////////////////////////////
@@ -52,5 +94,5 @@ module app.excursions {
 
     angular
         .module('app.excursions', ['ngFileUpload'])
-        .service("ExcursionService", ['Upload', '$localStorage', ExcursionService]);
+        .service("ExcursionService", ['Upload', '$localStorage', '$http', ExcursionService]);
 }
