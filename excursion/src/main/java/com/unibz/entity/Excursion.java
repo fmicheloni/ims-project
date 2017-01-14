@@ -1,4 +1,4 @@
-package com.unibz.dao;
+package com.unibz.entity;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,7 +13,7 @@ public class Excursion {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     @Column( nullable = false )
-    private long id;
+    private Long id;
 
     @Column( nullable = false )
     private String title;
@@ -27,7 +27,6 @@ public class Excursion {
     @Column( nullable = false )
     private String peopleTarget;
 
-    @Column( nullable = false )
     private String coordinates;
 
     @Column( nullable = false )
@@ -37,7 +36,6 @@ public class Excursion {
     @Column( nullable = false )
     private String username;
 
-    @Column( nullable = false )
     private int likes;
 
     @Column( nullable = false )
@@ -51,11 +49,11 @@ public class Excursion {
         this.title = title;
     }
 
-    public String getLongDescription() {
+    public String getlongDescription() {
         return longDescription;
     }
 
-    public void setLongDescription( final String longDescription ) {
+    public void setlongDescription( final String longDescription ) {
         this.longDescription = longDescription;
     }
 
@@ -147,10 +145,10 @@ public class Excursion {
         return this;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
-    public void setId( final long id ) {
+    public void setId( final Long id ) {
         this.id = id;
     }
     public String getPlaceTarget() {
@@ -166,7 +164,7 @@ public class Excursion {
         this.peopleTarget = peopleTarget;
     }
 
-    public Excursion id( long id ) {
+    public Excursion id( Long id ) {
         this.id = id;
         return this;
     }
@@ -179,7 +177,8 @@ public class Excursion {
         return this;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "Excursion{" +
                 "id=" + id +
                 ", title='" + title + '\'' +

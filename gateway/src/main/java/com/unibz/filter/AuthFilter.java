@@ -82,7 +82,6 @@ public class AuthFilter extends ZuulFilter {
 
             final ResponseEntity<String> exchange = this.restTemplate.exchange( this.authenticationUri, HttpMethod.POST, entity, String.class );
 
-
             logger.debug( "Status code for auth is [{}]", exchange.getStatusCode().value() );
 
             return exchange.getStatusCode().value() == 200;

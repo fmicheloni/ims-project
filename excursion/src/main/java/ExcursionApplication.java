@@ -2,11 +2,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EnableDiscoveryClient
 @SpringBootApplication
+@EntityScan( "com.unibz.entity" )
+@ComponentScan( { "com.unibz.service.impl", "com.unibz.controller" } )
+@EnableAutoConfiguration
+@Configuration
+@EnableJpaRepositories( value = "com.unibz.repository" )
 public class ExcursionApplication implements CommandLineRunner {
 
     private static Logger logger = LoggerFactory.getLogger( ExcursionApplication.class );
@@ -19,3 +29,4 @@ public class ExcursionApplication implements CommandLineRunner {
 
     }
 }
+

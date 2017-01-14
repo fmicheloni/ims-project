@@ -82,6 +82,23 @@ services:
         aliases:
           - account.unibz.com
 
+  excursion:
+    image: excursion-service:latest
+#    environment:
+#      ACCOUNT_SERVICE_PASSWORD: accountpassword
+    hostname: excursion.unibz.com
+    depends_on:
+      - mysql-account
+      - registry
+    ports:
+      - 9001:9001
+    volumes:
+      - ~/images:/images
+    networks:
+      imsnetwork:
+        aliases:
+          - excursion.unibz.com
+
   mail:
     image: mail-service:latest
     hostname: mail.unibz.com

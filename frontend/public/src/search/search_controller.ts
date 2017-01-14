@@ -44,17 +44,12 @@ module app.search {
 
             if(!this.StartLoadingService.informationLoaded) {
                 console.log('Loading user information...');
-                this.StartLoadingService.loadUserInfo(LoginService.loggedUser);
             }
 
+            this.longitude = this.StartLoadingService.latitude;
+            this.latitude = this.StartLoadingService.longitude;
+
             this.loadingImage = 'dist/images/s3X06zT.jpg';
-
-            navigator.geolocation.getCurrentPosition(this.setLocations.bind(this));
-        }
-
-        setLocations(position): void {
-            this.longitude = position.coords.longitude;
-            this.latitude = position.coords.latitude;
         }
     }
 

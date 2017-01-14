@@ -1,6 +1,5 @@
 package com.unibz;
 
-import com.unibz.configuration.BeanConfiguration;
 import com.unibz.filter.AuthFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,15 +12,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableZuulProxy
 @EnableDiscoveryClient
-@Import( {
-        BeanConfiguration.class
-} )
 @EnableAutoConfiguration
 @Configuration
 public class GatewayApplication implements CommandLineRunner {

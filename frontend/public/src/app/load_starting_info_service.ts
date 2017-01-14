@@ -31,6 +31,9 @@ module app.startloading {
         loadUserInfo(username: string): void;
         loggedUserInfo: CurrentUser;
         informationLoaded: boolean;
+
+        longitude: number;
+        latitude: number;
     }
 
     ///////////////////////////////////////////////////////
@@ -39,12 +42,22 @@ module app.startloading {
 
     export class StartLoadingService implements IStartLoadingService {
 
+        longitude: number;
+        latitude: number;
+
         informationLoaded: boolean = false;
 
         loggedUserInfo: app.startloading.CurrentUser = undefined;
 
         constructor(public $localStorage, public $http) {
             console.log('Creating StartLoadingService...');
+
+            navigator.geolocation.getCurrentPosition(this.setLocations.bind(this));
+        }
+
+        setLocations(position): void {
+            this.longitude = position.coords.longitude;
+            this.latitude = position.coords.latitude;
         }
 
         sleep(miliseconds: number): void {

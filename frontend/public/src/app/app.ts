@@ -13,6 +13,7 @@ angular.module('imsFrontendApp', [
     'app.myexcursions',
     'app.settings',
     'app.settingsctrl',
+    'app.excursions',
     'ngRoute',
     'pascalprecht.translate',
     'ngSanitize'

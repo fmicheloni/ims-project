@@ -44,6 +44,11 @@ zuul:
       serviceId: mail
       url: http://mail.unibz.com:8001
       sensitiveHeaders:
+    excursion:
+      path: /excursion/**
+      serviceId: excursion
+      stripPrefix: true
+      sensitiveHeaders:
 
 #authentication:
 #  ribbon:

@@ -64,8 +64,8 @@
                     <!--<input places-auto-complete ng-model="origin" size=40 />-->
                     <div class="google-map-div">
                         <div map-lazy-load="https://maps.google.com/maps/api/js">
-                            <ng-map center="[45.4862949,9.1632271]" zoom="14">
-                                <marker position="[45.4862949,9.1632271]"></marker>
+                            <ng-map center="[{{searchCtrl.longitude}},{{searchCtrl.latitude}}]" zoom="14">
+                                <marker position="[{{searchCtrl.longitude}},{{searchCtrl.latitude}}]"></marker>
                             </ng-map>
                         </div>
                     </div>

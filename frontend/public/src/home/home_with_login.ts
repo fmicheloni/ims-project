@@ -44,7 +44,7 @@ module app.home.withlog {
         constructor(public LoginService: ILoginService, public StartLoadingService: IStartLoadingService, public $window) {
             if(!this.StartLoadingService.informationLoaded) {
                 console.log('Loading user information...');
-                this.StartLoadingService.loadUserInfo(LoginService.loggedUser);
+                this.StartLoadingService.loadUserInfo(this.LoginService.loggedUser);
             }
             this.loadingImage = 'dist/images/s3X06zT.jpg';
         }
