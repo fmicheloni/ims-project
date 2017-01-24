@@ -15,6 +15,8 @@ public interface ExcursionRepository extends CrudRepository<Excursion, Long> {
 //    @Query("select Excursion excursion where excursion.placeTarget = :picture where excursion.peopleTarget = :peopleTarget")
 //    public int searchExcursions( @Param("placeTarget") String placeTarget, @Param("peopleTarget") String peopleTarget );
 
-    public List<Excursion> findByUsername( String username );
+    List<Excursion> findByUsername( String username );
+
+    List<Excursion> findByTitle( String title );
 
 }

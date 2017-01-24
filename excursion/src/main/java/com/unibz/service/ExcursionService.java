@@ -11,4 +11,6 @@ public interface ExcursionService {
     public Excursion saveExcursion( Excursion excursion );
 
     public List<Excursion> findByUsername( String username );
+
+    public List<Excursion> findByTitle( String title );
 }

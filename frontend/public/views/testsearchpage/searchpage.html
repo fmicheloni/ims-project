@@ -1,5 +1,3 @@
-
-
 <div ng-if="searchCtrl.StartLoadingService.informationLoaded == false">
     <span us-spinner="{lines: 13, radius: 34, width: 19, length: 0, scale: 1, corners: 1}"></span>
 
@@ -15,66 +13,97 @@
     <br>
     <br>
 
-    <div class="container searchBarExcursion">
+    <div ng-if="searchCtrl.isDisplayingResults == false">
 
-        <div class="row">
-            <div class="col-md-2"></div>
+        <div class="container searchBarExcursion">
 
-            <div class="col-md-8">
-                <div class="row">
-                    <h2>Search for an excursion!</h2>
-                    <div id="custom-search-input">
-                        <div class="input-group col-md-12">
-                            <input type="text" class="  search-query form-control" placeholder="Search"/>
-                            <span class="input-group-btn">
-                        <button class="btn btn-danger" type="button">
+            <div class="row">
+                <div class="col-md-2"></div>
+
+                <div class="col-md-8">
+                    <div class="row">
+                        <h2>Search for an excursion!</h2>
+                        <div id="custom-search-input">
+                            <div class="input-group col-md-12">
+                                <input ng-model="searchCtrl.searchString" type="text" class="search-query form-control"
+                                       placeholder="Search"/>
+                                <span class="input-group-btn">
+                        <button class="btn btn-danger" type="button" ng-click="searchCtrl.searchExcursions()">
                             <span class=" glyphicon glyphicon-search"></span>
                         </button>
                     </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <h3>Filter</h3>
+                    </div>
+
+                    <div class="row filter-group">
+                        <div class="col-md-4">
+                            <label class="radio"><input type="radio" name="optradioplace">Lake</label>
+                            <label class="radio"><input type="radio" name="optradioplace">Forest</label>
+                            <label class="radio"><input type="radio" name="optradioplace">Sea</label>
+                            <label class="radio"><input type="radio" name="optradioplace">Mountain</label>
+                            <label class="radio"><input type="radio" name="optradioplace">All</label>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="radio"><input type="radio" name="optradiopeople">Family</label>
+                            <label class="radio"><input type="radio" name="optradiopeople">Trekking</label>
+                            <label class="radio"><input type="radio" name="optradiopeople">Culture</label>
+                            <label class="radio"><input type="radio" name="optradiopeople">Culinary</label>
+                            <label class="radio"><input type="radio" name="optradiopeople">All</label>
+                        </div>
+                    </div>
+
+                    <br>
+                    <br>
+                    <br>
+
+                    <div class="row">
+                        <div class="google-map-div">
+                            <div map-lazy-load="https://maps.google.com/maps/api/js">
+                                <ng-map center="[{{searchCtrl.longitude}},{{searchCtrl.latitude}}]" zoom="14">
+                                    <marker position="[{{searchCtrl.longitude}},{{searchCtrl.latitude}}]"></marker>
+                                </ng-map>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <h3>Filter</h3>
-                </div>
-
-                <div class="row filter-group">
-                    <div class="col-md-4">
-                        <label class="radio"><input type="radio" name="optradio">Lake</label>
-                        <label class="radio"><input type="radio" name="optradio">Forest</label>
-                        <label class="radio"><input type="radio" name="optradio">Sea</label>
-                        <label class="radio"><input type="radio" name="optradio">Mountain</label>
-                        <label class="radio"><input type="radio" name="optradio">All</label>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="radio"><input type="radio" name="optradio">Family</label>
-                        <label class="radio"><input type="radio" name="optradio">Trekking</label>
-                        <label class="radio"><input type="radio" name="optradio">Culture</label>
-                        <label class="radio"><input type="radio" name="optradio">Culinary</label>
-                        <label class="radio"><input type="radio" name="optradio">All</label>
-                    </div>
-                </div>
-
-                <br>
-                <br>
-                <br>
-
-                <div class="row">
-                    <!--<input places-auto-complete ng-model="origin" size=40 />-->
-                    <div class="google-map-div">
-                        <div map-lazy-load="https://maps.google.com/maps/api/js">
-                            <ng-map center="[{{searchCtrl.longitude}},{{searchCtrl.latitude}}]" zoom="14">
-                                <marker position="[{{searchCtrl.longitude}},{{searchCtrl.latitude}}]"></marker>
-                            </ng-map>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-md-2"></div>
             </div>
-            <div class="col-md-2"></div>
         </div>
     </div>
 
+    <div ng-if="searchCtrl.isDisplayingResults == true">
+
+        <h1>Results</h1>
+
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Info</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="excursion in searchCtrl.excursionsResult">
+                    <td>{{excursion.title}}</td>
+                    <td>
+                        <button class="btn btn-primary">
+                            Info
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button class="btn btn-danger" ng-click="searchCtrl.goBack()">Back</button>
+
+    </div>
     <!--<div class="searchPageLore">-->
     <!--&lt;!&ndash;animation for the welcome&ndash;&gt;-->
 

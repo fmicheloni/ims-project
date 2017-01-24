@@ -35,6 +35,8 @@ module app.excursions {
 
         getMyExcursions(): void;
 
+        searchExcursions(args: string): Array<Excursion>;
+
         myExcursions: Array<Excursion>;
 
         // cache the excursions in the local service
@@ -86,6 +88,23 @@ module app.excursions {
                 });
             }
         }
+
+        searchExcursions(args: string): Array<Excursion> {
+
+            let url = '/api/excursion/search?title=' + args;
+            console.log(url);
+
+            let http = new XMLHttpRequest();
+            http.open("GET", url, false);
+            http.setRequestHeader('Content-Type', 'application/txt');
+
+            http.send();
+
+            let excursions: Array<Excursion> = JSON.parse(http.response);
+
+            return excursions;
+        }
+
     }
 
     ///////////////////////////////////////////////////////

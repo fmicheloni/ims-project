@@ -42,7 +42,7 @@ public class ExcursionApplication implements CommandLineRunner {
                 .image( "MTQ4NDE3NTUzNDgxMlk.png" )
                 .peopleTarget( "asdasd" )
                 .placeTarget( "myPlace" )
-                .title( "My Title" )
+                .title( "My Title1" )
                 .longDescription( "This is a super cool excursion!!!" ) );
 
         this.excursionService.saveExcursion( new Excursion()
@@ -51,7 +51,7 @@ public class ExcursionApplication implements CommandLineRunner {
                 .image( "MTQ4NDE3NTUzNDgxMlk.png" )
                 .peopleTarget( "asdasd" )
                 .placeTarget( "myPlace" )
-                .title( "My Title" )
+                .title( "My Title2" )
                 .longDescription( "This is a super cool excursion!!!" ) );
 
         this.excursionService.saveExcursion( new Excursion()
@@ -60,7 +60,7 @@ public class ExcursionApplication implements CommandLineRunner {
                 .image( "MTQ4NDE3NTUzNDgxMlk.png" )
                 .peopleTarget( "asdasd" )
                 .placeTarget( "myPlace" )
-                .title( "My Title" )
+                .title( "My Title3" )
                 .longDescription( "This is a super cool excursion!!!" ) );
     }
 }

@@ -10,6 +10,8 @@ module app.search {
     import IStartLoadingService = app.startloading.IStartLoadingService;
     import ILoginService = app.loginservice.ILoginService;
     import ISettingsService = app.settings.ISettingsService;
+    import IExcursionService = app.excursions.IExcursionService;
+    import Excursion = app.excursions.Excursion;
 
     ///////////////////////////////////////////////////////
     //                       MODELS                      //
@@ -25,6 +27,16 @@ module app.search {
         latitude: number;
 
         loadingImage: string;
+
+        searchString: string;
+
+        excursionsResult: Array<Excursion>;
+
+        searchExcursions(): void;
+
+        isDisplayingResults: boolean;
+
+        goBack(): void;
     }
 
     ///////////////////////////////////////////////////////
@@ -32,6 +44,9 @@ module app.search {
     ///////////////////////////////////////////////////////
 
     export class SearchCtrl implements ISearchCtrl {
+        isDisplayingResults: boolean = false;
+        excursionsResult: Array<app.excursions.Excursion> = [];
+        searchString: string;
         longitude: number;
         latitude: number;
 
@@ -40,7 +55,8 @@ module app.search {
         constructor(public StartLoadingService: IStartLoadingService,
                     public LoginService: ILoginService,
                     public NgMap,
-                    public SettingsService: ISettingsService) {
+                    public SettingsService: ISettingsService,
+                    public ExcursionService: IExcursionService) {
 
             if(!this.StartLoadingService.informationLoaded) {
                 console.log('Loading user information...');
@@ -51,6 +67,27 @@ module app.search {
 
             this.loadingImage = 'dist/images/s3X06zT.jpg';
         }
+
+        searchExcursions(): void {
+            while(this.excursionsResult.length > 0) {
+                this.excursionsResult.pop();
+            }
+
+            console.log(this.searchString);
+
+            let foundExcursion: Array<Excursion> = this.ExcursionService.searchExcursions(this.searchString);
+
+            for(let excursion of foundExcursion) {
+                console.log(excursion);
+                this.excursionsResult.push(excursion);
+            }
+
+            this.isDisplayingResults = true;
+        }
+
+        goBack(): void {
+            this.isDisplayingResults = false;
+        }
     }
 
     ///////////////////////////////////////////////////////
@@ -58,7 +95,7 @@ module app.search {
     ///////////////////////////////////////////////////////
 
     angular
-        .module('app.search', ['app.startloading', 'app.loginservice', 'ngMap', 'angularSpinner', 'app.settings'])
+        .module('app.search', ['app.startloading', 'app.loginservice', 'ngMap', 'angularSpinner', 'app.settings', 'app.excursions'])
         .config(($routeProvider) => {
             $routeProvider.when('/search', {
                 templateUrl: '../../views/testsearchpage/searchpage.html',

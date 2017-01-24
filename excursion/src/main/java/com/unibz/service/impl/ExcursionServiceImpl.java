@@ -26,4 +26,9 @@ public class ExcursionServiceImpl implements ExcursionService {
     public List<Excursion> findByUsername( final String username ) {
         return this.excursionRepository.findByUsername( username );
     }
+
+    @Override
+    public List<Excursion> findByTitle( final String title ) {
+        return this.excursionRepository.findByTitle( title );
+    }
 }

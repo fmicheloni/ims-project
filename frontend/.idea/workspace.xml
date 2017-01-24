@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b744eaad-2378-4442-893f-773232aa2e23" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/entity/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../account/src/main/java/com/unibz/entity/User.java" afterPath="$PROJECT_DIR$/../account/src/main/java/com/unibz/entity/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../README.md" afterPath="$PROJECT_DIR$/../README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../authentication/authentication.iml" afterPath="$PROJECT_DIR$/../authentication/authentication.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/src/main/java/ExcursionApplication.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/ExcursionApplication.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/controller/ExcursionController.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/controller/ExcursionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/entity/Excursion.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/entity/Excursion.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/repository/ExcursionRepository.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/repository/ExcursionRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/service/ExcursionService.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/service/ExcursionService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/service/impl/ExcursionServiceImpl.java" afterPath="$PROJECT_DIR$/../excursion/src/main/java/com/unibz/service/impl/ExcursionServiceImpl.java" />
@@ -18,8 +16,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/app.min.js" afterPath="$PROJECT_DIR$/public/dist/app.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/app.min.js.map" afterPath="$PROJECT_DIR$/public/dist/app.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/app/excursion_service.ts" afterPath="$PROJECT_DIR$/public/src/app/excursion_service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts" afterPath="$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/myexcursions/myexcursion.html" afterPath="$PROJECT_DIR$/public/views/myexcursions/myexcursion.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/src/search/search_controller.ts" afterPath="$PROJECT_DIR$/public/src/search/search_controller.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/testsearchpage/searchpage.html" afterPath="$PROJECT_DIR$/public/views/testsearchpage/searchpage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pom.xml" afterPath="$PROJECT_DIR$/../pom.xml" />
     </list>
     <ignored path="frontend.iws" />
@@ -43,58 +41,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="myexcursion.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/myexcursions/myexcursion.html">
+      <file leaf-file-name="myexcursion.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/myexcursions/style/myexcursion.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="707">
-              <caret line="163" column="86" lean-forward="false" selection-start-line="163" selection-start-column="67" selection-end-line="163" selection-end-column="86" />
+            <state relative-caret-position="105">
+              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myexcursions_controller.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="581">
+              <caret line="112" column="8" lean-forward="true" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search_controller.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/src/search/search_controller.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="81" column="42" lean-forward="false" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="searchpage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/testsearchpage/searchpage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="89" column="24" lean-forward="true" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
               <folding>
-                <element signature="e#2833#2839#0" expanded="true" />
-                <element signature="e#2839#2845#0" expanded="true" />
-                <element signature="e#2845#2851#0" expanded="true" />
-                <element signature="e#3937#3943#0" expanded="true" />
-                <element signature="e#3943#3949#0" expanded="true" />
-                <element signature="e#3949#3955#0" expanded="true" />
+                <marker date="1485281963000" expanded="true" signature="4384:5719" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myexcursion.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/myexcursions/style/myexcursion.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="myexcursions_controller.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="94" column="35" lean-forward="true" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="excursion_service.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="excursion_service.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/src/app/excursion_service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/src/app/app.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            <state relative-caret-position="540">
+              <caret line="102" column="57" lean-forward="false" selection-start-line="102" selection-start-column="57" selection-end-line="102" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -112,7 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ngRoute</find>
       <find>template</find>
       <find>foto</find>
       <find>state</find>
@@ -142,6 +134,7 @@
       <find>update</find>
       <find>upload</find>
       <find>public</find>
+      <find>ng-re</find>
     </findStrings>
     <replaceStrings>
       <replace>h3</replace>
@@ -202,16 +195,16 @@
         <option value="$PROJECT_DIR$/public/src/app/settings_service.ts" />
         <option value="$PROJECT_DIR$/public/src/account/account_controller.ts" />
         <option value="$PROJECT_DIR$/public/views/account/account.html" />
-        <option value="$PROJECT_DIR$/public/src/search/search_controller.ts" />
-        <option value="$PROJECT_DIR$/public/views/testsearchpage/searchpage.html" />
         <option value="$PROJECT_DIR$/public/views/navbar/navbar.html" />
         <option value="$PROJECT_DIR$/public/views/myexcursions/style/myexcursion.scss" />
         <option value="$PROJECT_DIR$/public/src/app/app.ts" />
         <option value="$PROJECT_DIR$/public/src/app/load_starting_info_service.ts" />
         <option value="$PROJECT_DIR$/public/src/home/home_with_login.ts" />
-        <option value="$PROJECT_DIR$/public/src/app/excursion_service.ts" />
         <option value="$PROJECT_DIR$/public/views/myexcursions/myexcursion.html" />
         <option value="$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts" />
+        <option value="$PROJECT_DIR$/public/views/testsearchpage/searchpage.html" />
+        <option value="$PROJECT_DIR$/public/src/search/search_controller.ts" />
+        <option value="$PROJECT_DIR$/public/src/app/excursion_service.ts" />
       </list>
     </option>
   </component>
@@ -253,6 +246,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -853,7 +847,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -970,11 +963,12 @@
       <workItem from="1483790306479" duration="5480000" />
       <workItem from="1483871240847" duration="45059000" />
       <workItem from="1484407023319" duration="4534000" />
+      <workItem from="1485279384561" duration="2820000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116105000" />
+    <option name="totallyTimeSpent" value="118925000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1149,16 +1143,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#a#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1214,23 +1198,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/search/search_controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/testsearchpage/searchpage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="53" column="16" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
-          <folding>
-            <marker date="1484158682000" expanded="true" signature="3219:4554" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/src/navbar/navbar_controller.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -1242,15 +1209,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#p#0;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1258,26 +1216,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/src/images/Edit fiddle - JSFiddle.htm" />
-    <entry file="file://$PROJECT_DIR$/public/src/home/home_with_login.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="46" column="46" lean-forward="true" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/app/app.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/dist/app.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1332,6 +1274,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/account/account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="71" column="33" lean-forward="true" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/app/app.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/src/app/load_starting_info_service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -1340,42 +1297,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/app/login_service.ts">
+    <entry file="file://$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="21" selection-end-column="5" />
+        <state relative-caret-position="581">
+          <caret line="112" column="8" lean-forward="true" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/account/account.html">
+    <entry file="file://$PROJECT_DIR$/public/src/home/home_with_login.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="71" column="33" lean-forward="true" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/app/excursion_service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/myexcursions/style/myexcursion.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="12" />
+        <state relative-caret-position="386">
+          <caret line="46" column="46" lean-forward="true" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/myexcursions/myexcursion.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="707">
-          <caret line="163" column="86" lean-forward="false" selection-start-line="163" selection-start-column="67" selection-end-line="163" selection-end-column="86" />
+        <state relative-caret-position="106">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="33" selection-end-column="22" />
           <folding>
             <element signature="e#2833#2839#0" expanded="true" />
             <element signature="e#2839#2845#0" expanded="true" />
@@ -1387,10 +1328,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/myexcursions/myexcursions_controller.ts">
+    <entry file="file://$PROJECT_DIR$/public/views/myexcursions/style/myexcursion.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="94" column="35" lean-forward="true" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/app/login_service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/testsearchpage/searchpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="89" column="24" lean-forward="true" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
+          <folding>
+            <marker date="1485281963000" expanded="true" signature="4384:5719" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/search/search_controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="81" column="42" lean-forward="false" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/app/excursion_service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="102" column="57" lean-forward="false" selection-start-line="102" selection-start-column="57" selection-end-line="102" selection-end-column="57" />
           <folding />
         </state>
       </provider>

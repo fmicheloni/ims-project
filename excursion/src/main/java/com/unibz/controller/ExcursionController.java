@@ -131,4 +131,16 @@ public class ExcursionController {
 
         return MediaType.IMAGE_JPEG_VALUE;
     }
+
+    @RequestMapping( value = "/search", method = RequestMethod.GET )
+    public @ResponseBody ResponseEntity searchExcursion(
+            @RequestParam( value = "title" ) String title ) {
+        logger.debug( "Title is: [{}]", title );
+
+        final List<Excursion> byTitle = this.excursionService.findByTitle( title );
+
+        Gson gson = new Gson();
+
+        return ResponseEntity.ok( gson.toJson( byTitle ) );
+    }
 }

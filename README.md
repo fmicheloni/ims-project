@@ -23,7 +23,7 @@ Modify your hosts file adding the following lines (/private/etc/hosts for Mac):
 127.0.0.1 www.theexcursioner.com<br/>
 
 At this point the project will be fully built.
-To run it use
+To run it
 ```bash
 docker-compose -f docker-compose/docker-compose-ims.yml up -d
 ```
@@ -31,7 +31,7 @@ To see the logs
 ```bash
 docker-compose -f docker-compose/docker-compose-ims.yml logs -f
 ```
-To stop it run
+To stop it
 ```bash
 docker-compose -f docker-compose/docker-compose-ims.yml down
 ```
@@ -52,11 +52,13 @@ POST	| /authentication/validate	| Validate a token | eyJhbGciOiJIUzUxMiJ9.eyJzdW
 
 RUNNING THE FRONTEND (located in frontend folder)<br/>
 
+Go in the frontend directory.
+
 ```bash
 tsd install
-gulp
+sudo gulp
 ```
 
 The default task has a nodemon watching for changes.<br/>
 To just run server: `gulp serve`<br/>
-**Application runs on port 80.**
+**Application runs on port 80 for http, 443 for https.**
